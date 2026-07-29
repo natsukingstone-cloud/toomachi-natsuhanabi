@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<base target="_top">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>とおまち夏花火ナイト｜観覧席予約</title>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A4A;
+    --paper:#F7F1E6;
+    --paper-deep:#EFE6D3;
+    --accent:#E8633C;
+    --gold:#B08650;
+    --charcoal:#2C2A26;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:300;
+    color:var(--charcoal);
+    background:var(--paper);
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mincho{font-family:'Shippori Mincho',serif;}
+  .wrap{max-width:480px;margin:0 auto;padding:36px 22px 60px;}
+  .header{text-align:center;margin-bottom:28px;}
+  .header .eyebrow{
+    display:block;font-size:0.68rem;letter-spacing:0.28em;
+    color:var(--gold);font-weight:500;margin-bottom:10px;text-transform:uppercase;
+  }
+  .header h1{
+    font-family:'Shippori Mincho',serif;font-weight:600;
+    font-size:1.35rem;color:var(--ink);line-height:1.6;
+  }
+  .avail-box{
+    background:var(--white);
+    border:1px solid rgba(176,134,80,0.35);
+    border-radius:4px;
+    padding:16px;
+    text-align:center;
+    margin-bottom:26px;
+    font-size:0.85rem;
+  }
+  .avail-box .remaining{
+    font-family:'Shippori Mincho',serif;
+    font-size:1.5rem;
+    color:var(--accent);
+    font-weight:600;
+  }
+  .avail-box.full .remaining{color:#999;}
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block;font-size:0.78rem;font-weight:500;color:var(--ink);
+    margin-bottom:6px;letter-spacing:0.03em;
+  }
+  .field label .req{color:var(--accent);margin-left:4px;font-size:0.7rem;}
+  .field input, .field textarea{
+    width:100%;padding:12px 12px;
+    border:1px solid rgba(27,42,74,0.25);
+    border-radius:3px;
+    font-family:'Noto Sans JP',sans-serif;
+    font-size:0.9rem;
+    background:var(--white);
+    color:var(--charcoal);
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none;border-color:var(--accent);
+  }
+  .field textarea{resize:vertical;min-height:70px;}
+  .field .hint{font-size:0.7rem;color:rgba(44,42,38,0.6);margin-top:5px;}
+  .price-note{
+    border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);
+    padding:14px 4px;text-align:center;font-size:0.82rem;margin-bottom:24px;
+  }
+  .btn{
+    display:block;width:100%;text-align:center;
+    background:var(--accent);color:var(--white);
+    font-weight:500;font-size:0.9rem;letter-spacing:0.06em;
+    padding:16px;border:none;border-radius:3px;cursor:pointer;
+    transition:opacity .2s ease;
+  }
+  .btn:active{opacity:0.8;}
+  .btn:disabled{background:#bbb;cursor:not-allowed;}
+  .error-box{
+    background:#FBEAE5;border:1px solid var(--accent);color:var(--accent);
+    padding:12px 14px;border-radius:3px;font-size:0.82rem;margin-bottom:18px;
+    display:none;
+  }
+  .error-box.show{display:block;}
+  .loading{
+    display:none;text-align:center;font-size:0.8rem;color:var(--gold);margin-top:12px;
+  }
+  .loading.show{display:block;}
+
+  /* 完了画面 */
+  .done-screen{display:none;text-align:center;}
+  .done-screen.show{display:block;}
+  .form-screen.hide{display:none;}
+  .done-screen .check{
+    width:56px;height:56px;border-radius:50%;
+    background:var(--ink);color:var(--white);
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;margin:0 auto 20px;
+  }
+  .done-screen h2{
+    font-family:'Shippori Mincho',serif;font-weight:600;
+    font-size:1.2rem;color:var(--ink);margin-bottom:16px;
+  }
+  .done-screen .id-box{
+    background:var(--white);border:1px solid var(--gold);
+    padding:16px;margin:20px 0;border-radius:3px;
+  }
+  .done-screen .id-box .label{font-size:0.7rem;color:var(--gold);margin-bottom:6px;}
+  .done-screen .id-box .value{font-family:'Shippori Mincho',serif;font-size:1.15rem;color:var(--ink);font-weight:600;}
+  .done-screen p{font-size:0.85rem;text-align:left;background:var(--white);padding:16px;border-radius:3px;margin-top:16px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="header">
+    <span class="eyebrow">SEAT RESERVATION</span>
+    <h1>とおまち夏花火ナイト<br>有料観覧席のご予約</h1>
+  </div>
+
+  <div id="availBox" class="avail-box">読み込み中...</div>
+
+  <div id="formScreen" class="form-screen">
+    <div id="errorBox" class="error-box"></div>
+
+    <form id="reserveForm" onsubmit="return false;">
+      <div class="field">
+        <label>お名前<span class="req">必須</span></label>
+        <input type="text" id="name" placeholder="山田 太郎">
+      </div>
+      <div class="field">
+        <label>人数<span class="req">必須</span></label>
+        <input type="number" id="count" min="1" max="10" value="1">
+        <div class="hint">1名〜10名まで。11名以上の団体はLINEでご相談ください。</div>
+      </div>
+      <div class="field">
+        <label>メールアドレス</label>
+        <input type="email" id="email" placeholder="example@mail.com">
+      </div>
+      <div class="field">
+        <label>電話番号</label>
+        <input type="tel" id="tel" placeholder="090-0000-0000">
+        <div class="hint">メールアドレス・電話番号のどちらか一方は必ずご入力ください。</div>
+      </div>
+      <div class="field">
+        <label>ご希望・備考</label>
+        <textarea id="note" placeholder="車椅子スペース希望、など（任意）"></textarea>
+      </div>
+
+      <div class="price-note">
+        有料観覧席：1,500円（税込）／1名<br>
+        <span style="font-size:0.72rem;opacity:0.75;">当日会場にてお支払いください。前日17時までキャンセル無料。</span>
+      </div>
+
+      <button type="button" class="btn" id="submitBtn" onclick="submitForm()">この内容で予約する</button>
+      <div id="loading" class="loading">送信中です…</div>
+    </form>
+  </div>
+
+  <div id="doneScreen" class="done-screen">
+    <div class="check">✓</div>
+    <h2>ご予約ありがとうございます</h2>
+    <div class="id-box">
+      <div class="label">予約番号</div>
+      <div class="value" id="reservationIdText">-</div>
+    </div>
+    <p id="doneDetail"></p>
+  </div>
+</div>
+
+<script>
+  function refreshAvailability(){
+    google.script.run.withSuccessHandler(function(info){
+      var box = document.getElementById('availBox');
+      if(info.isFull){
+        box.className = 'avail-box full';
+        box.innerHTML = '<div class="remaining">満席</div>現在、有料観覧席は満席です。';
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').innerText = '満席のため受付を終了しました';
+      } else {
+        box.className = 'avail-box';
+        box.innerHTML = '残り <span class="remaining">' + info.remaining + '</span> 名分（定員 ' + info.capacity + ' 名）';
+      }
+    }).getAvailability();
+  }
+
+  function showError(msg){
+    var box = document.getElementById('errorBox');
+    box.innerText = msg;
+    box.className = 'error-box show';
+  }
+  function hideError(){
+    document.getElementById('errorBox').className = 'error-box';
+  }
+
+  function submitForm(){
+    hideError();
+    var form = {
+      name: document.getElementById('name').value,
+      count: document.getElementById('count').value,
+      email: document.getElementById('email').value,
+      tel: document.getElementById('tel').value,
+      note: document.getElementById('note').value
+    };
+
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('loading').className = 'loading show';
+
+    google.script.run
+      .withSuccessHandler(function(result){
+        document.getElementById('loading').className = 'loading';
+        document.getElementById('formScreen').className = 'form-screen hide';
+        document.getElementById('doneScreen').className = 'done-screen show';
+        document.getElementById('reservationIdText').innerText = result.reservationId;
+        document.getElementById('doneDetail').innerText =
+          (form.email ? 'ご入力いただいたメールアドレスに予約内容をお送りしました。' : '') +
+          '当日、灯りの下でお待ちしています。';
+      })
+      .withFailureHandler(function(err){
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('loading').className = 'loading';
+        showError(err.message || String(err));
+      })
+      .submitReservation(form);
+  }
+
+  refreshAvailability();
+</script>
+
+</body>
+</html>

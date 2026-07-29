@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>とおまち夏花火ナイト｜今年の夏、まだ予定決まってない人へ</title>
+<meta name="description" content="有名じゃなくていい。ちょっと懐かしい夏を、とおまちで。混みすぎない、ちょうどいい花火大会「とおまち夏花火ナイト」の観覧席予約・宿泊案内はこちら。">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;800&family=Noto+Sans+JP:wght@300;400;500;700&family=M+PLUS+Rounded+1c:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B2A4A;
+    --paper:#F7F1E6;
+    --paper-deep:#EFE6D3;
+    --accent:#E8633C;
+    --gold:#B08650;
+    --charcoal:#2C2A26;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:300;
+    color:var(--charcoal);
+    background:var(--paper);
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    letter-spacing:0.02em;
+  }
+  img{max-width:100%;display:block;}
+  video{max-width:100%;display:block;}
+  .mincho{font-family:'Shippori Mincho',serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:560px;margin:0 auto;position:relative;background:var(--paper);overflow:hidden;}
+  section{padding:76px 28px;position:relative;}
+
+  .eyebrow{
+    display:block;
+    font-size:0.68rem;
+    letter-spacing:0.32em;
+    color:var(--gold);
+    font-weight:500;
+    text-align:center;
+    margin-bottom:16px;
+    text-transform:uppercase;
+  }
+  h2.section-title{
+    font-family:'Shippori Mincho',serif;
+    font-weight:600;
+    font-size:1.65rem;
+    color:var(--ink);
+    text-align:center;
+    line-height:1.75;
+    margin-bottom:34px;
+    letter-spacing:0.04em;
+  }
+  .divider{
+    width:34px;height:1px;
+    background:var(--gold);
+    margin:0 auto 34px;
+    position:relative;
+  }
+  .divider::after{
+    content:"◆";
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    font-size:0.5rem;color:var(--gold);
+    background:var(--paper);
+    padding:0 6px;
+  }
+  section.on-white .divider::after{background:var(--white);}
+  section.on-ink .divider{background:rgba(255,255,255,0.4);}
+  section.on-ink .divider::after{background:var(--ink);color:#E9C9A0;}
+
+  /* ---------- reveal-on-scroll ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.22,.8,.32,1), transform 1s cubic-bezier(.22,.8,.32,1);}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+  .reveal-delay-1.in-view{transition-delay:.12s;}
+  .reveal-delay-2.in-view{transition-delay:.24s;}
+  .reveal-delay-3.in-view{transition-delay:.36s;}
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(27,42,74,0.94);
+    backdrop-filter:blur(8px);
+    color:var(--white);
+    padding:16px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    max-width:560px;margin:0 auto;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .site-header .logo{
+    font-family:'Shippori Mincho',serif;
+    font-weight:600;font-size:0.92rem;
+    letter-spacing:0.08em;
+    display:flex;align-items:center;gap:10px;
+  }
+  .site-header .logo img{width:26px;height:26px;}
+  .site-header .cta-mini{
+    border:1px solid rgba(255,255,255,0.55);
+    color:var(--white);
+    font-size:0.68rem;
+    letter-spacing:0.1em;
+    font-weight:500;
+    padding:8px 16px;
+    border-radius:2px;
+  }
+
+  /* ---------- FV (video hero) ---------- */
+  .fv{
+    position:relative;
+    height:100svh;
+    min-height:640px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:0;
+    color:var(--white);
+    overflow:hidden;
+    text-align:center;
+  }
+  .fv video, .fv img.fallback{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;
+    filter:brightness(0.5) saturate(1.05);
+    animation:kenburns 14s ease-in-out infinite alternate;
+  }
+  @keyframes kenburns{
+    0%{transform:scale(1.06);}
+    100%{transform:scale(1);}
+  }
+  .fv::before{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(20,30,55,0.35) 0%, rgba(15,22,42,0.55) 55%, rgba(10,16,32,0.92) 100%);
+    z-index:1;
+  }
+  .fv-content{position:relative;z-index:2;padding:0 30px;}
+  .fv .eyebrow{
+    color:#E9C9A0;
+    opacity:0;
+    animation:fadeUp .9s ease forwards;
+    animation-delay:.3s;
+  }
+  .fv h1{
+    font-family:'Shippori Mincho',serif;
+    font-weight:600;
+    font-size:2.05rem;
+    line-height:1.65;
+    margin-bottom:18px;
+    letter-spacing:0.05em;
+  }
+  .fv h1 span{
+    display:block;
+    opacity:0;
+    transform:translateY(16px);
+    animation:fadeUp .9s cubic-bezier(.22,.8,.32,1) forwards;
+  }
+  .fv h1 span:nth-child(1){animation-delay:.55s;}
+  .fv h1 span:nth-child(2){animation-delay:.8s;}
+  .fv p.sub{
+    font-size:0.86rem;
+    font-weight:300;
+    letter-spacing:0.06em;
+    margin-bottom:38px;
+    opacity:0;
+    animation:fadeUp .9s ease forwards;
+    animation-delay:1.05s;
+  }
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(14px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .scroll-cue{
+    position:absolute;bottom:26px;left:50%;
+    transform:translateX(-50%);
+    z-index:2;
+    font-size:0.62rem;
+    letter-spacing:0.3em;
+    color:rgba(255,255,255,0.75);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+    opacity:0;
+    animation:fadeUp 1s ease forwards;
+    animation-delay:1.5s;
+  }
+  .scroll-cue .line{width:1px;height:26px;background:rgba(255,255,255,0.5);animation:scrollLine 1.8s ease-in-out infinite;}
+  @keyframes scrollLine{
+    0%{transform:scaleY(0);transform-origin:top;}
+    50%{transform:scaleY(1);transform-origin:top;}
+    51%{transform-origin:bottom;}
+    100%{transform:scaleY(0);transform-origin:bottom;}
+  }
+
+  .mascot-row{
+    display:flex;align-items:flex-end;gap:12px;margin-bottom:26px;
+    justify-content:center;
+    opacity:0;
+    animation:fadeUp .9s ease forwards;
+    animation-delay:1.25s;
+  }
+  .mascot-row img{width:78px;flex-shrink:0;}
+
+  @keyframes idleFloat{
+    0%,100%{transform:translateY(0) rotate(-1.5deg);}
+    50%{transform:translateY(-7px) rotate(1.5deg);}
+  }
+  .mascot-row img, .mascot-speech img, .closing-mascot{
+    animation:idleFloat 3.4s ease-in-out infinite;
+    transform-origin:bottom center;
+  }
+  .mascot-speech img{animation-duration:3s;}
+  .closing-mascot{animation-duration:3.8s;}
+  .speech-bubble{
+    background:rgba(255,246,229,0.94);
+    color:var(--charcoal);
+    border:1px solid rgba(176,134,80,0.3);
+    border-radius:16px 16px 16px 3px;
+    padding:11px 15px;
+    font-size:0.8rem;
+    font-weight:500;
+    font-family:'Noto Sans JP',sans-serif;
+    text-align:left;
+    box-shadow:0 4px 14px rgba(0,0,0,0.12);
+  }
+  .cta-group{display:flex;flex-direction:column;gap:12px;align-items:center;}
+  .btn{
+    display:inline-block;
+    text-align:center;
+    font-weight:500;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    padding:16px 34px;
+    border-radius:2px;
+    transition:opacity .2s ease, transform .15s ease;
+    min-width:240px;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{
+    background:var(--accent);
+    color:var(--white);
+  }
+  .btn-outline{
+    background:transparent;
+    color:var(--white);
+    border:1px solid rgba(255,255,255,0.7);
+  }
+  .btn-line{
+    background:#06C755;
+    color:var(--white);
+  }
+  .btn-ink-outline{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--ink);
+  }
+
+  /* ---------- Reel showcase ---------- */
+  section.reel-showcase{background:var(--white);text-align:center;}
+  .reel-frame{
+    position:relative;
+    width:220px;
+    margin:0 auto 22px;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(27,42,74,0.22);
+    background:#000;
+  }
+  .reel-frame video{width:100%;aspect-ratio:9/16;object-fit:cover;}
+  .reel-frame .play-badge{
+    position:absolute;inset:0;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(10,16,32,0.28);
+    transition:opacity .3s ease;
+    cursor:pointer;
+  }
+  .reel-frame .play-badge .circle{
+    width:52px;height:52px;border-radius:50%;
+    background:rgba(255,255,255,0.92);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,0.25);
+  }
+  .reel-frame .play-badge .circle::after{
+    content:"";
+    border-style:solid;
+    border-width:9px 0 9px 15px;
+    border-color:transparent transparent transparent var(--ink);
+    margin-left:4px;
+  }
+  .reel-frame.playing .play-badge{opacity:0;pointer-events:none;}
+  .reel-caption{font-size:0.78rem;color:var(--charcoal);opacity:0.75;max-width:320px;margin:0 auto;}
+
+  /* ---------- あるある ---------- */
+  section.pain{background:var(--paper-deep);}
+  .arualru-list{list-style:none;margin:0 0 32px;}
+  .arualru-list li{
+    padding:16px 0 16px 30px;
+    border-bottom:1px solid rgba(27,42,74,0.12);
+    font-size:0.88rem;
+    font-weight:400;
+    position:relative;
+  }
+  .arualru-list li:first-child{border-top:1px solid rgba(27,42,74,0.12);}
+  .arualru-list li::before{
+    content:"—";
+    position:absolute;left:0;top:16px;
+    color:var(--gold);
+    font-weight:600;
+  }
+  .mascot-speech{
+    display:flex;align-items:center;gap:16px;
+    justify-content:center;
+  }
+  .mascot-speech img{width:70px;flex-shrink:0;}
+  .mascot-speech .speech-bubble{box-shadow:none;background:rgba(255,246,229,0.85);}
+
+  /* ---------- 解決 ---------- */
+  .solution p.lead{
+    font-size:0.9rem;
+    margin-bottom:30px;
+    text-align:center;
+  }
+  .point-list{list-style:none;}
+  .point-list li{
+    display:flex;align-items:flex-start;gap:16px;
+    padding:18px 0;
+    border-top:1px solid rgba(27,42,74,0.12);
+    font-size:0.87rem;
+    font-weight:400;
+  }
+  .point-list li:last-child{border-bottom:1px solid rgba(27,42,74,0.12);}
+  .point-num{
+    flex-shrink:0;
+    font-family:'Shippori Mincho',serif;
+    font-size:1rem;
+    color:var(--gold);
+    font-weight:600;
+  }
+  section.solution{background:var(--white);}
+
+  /* ---------- イベント概要 ---------- */
+  section.event-info{background:var(--paper-deep);}
+  .info-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom:26px;
+    font-size:0.85rem;
+  }
+  .info-table tr{border-bottom:1px solid rgba(27,42,74,0.15);}
+  .info-table th{
+    text-align:left;
+    padding:16px 10px 16px 0;
+    width:32%;
+    font-weight:500;
+    font-size:0.75rem;
+    color:var(--gold);
+    letter-spacing:0.05em;
+    vertical-align:top;
+  }
+  .info-table td{padding:16px 0;font-weight:400;}
+  .note-box{
+    border-top:1px solid var(--gold);
+    border-bottom:1px solid var(--gold);
+    padding:18px 4px;
+    font-size:0.82rem;
+    text-align:center;
+    margin-bottom:30px;
+  }
+
+  /* ---------- シーン紹介 ---------- */
+  section.scenes{background:var(--white);}
+  .scene-card{
+    margin-bottom:36px;
+  }
+  .scene-card img, .scene-card video{width:100%;height:260px;object-fit:cover;}
+  .scene-card .scene-body{padding:18px 2px 0;}
+  .scene-card .scene-tag{
+    display:block;
+    font-size:0.66rem;
+    font-weight:500;
+    color:var(--gold);
+    letter-spacing:0.18em;
+    margin-bottom:8px;
+    text-transform:uppercase;
+  }
+  .scene-card p{font-size:0.86rem;font-weight:400;}
+
+  /* ---------- ベネフィット ---------- */
+  section.benefit{background:var(--ink);color:var(--white);}
+  section.benefit .eyebrow{color:#E9C9A0;}
+  .benefit-video{
+    width:100%;
+    border-radius:6px;
+    overflow:hidden;
+    margin-top:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.35);
+  }
+  .benefit-video video{width:100%;height:200px;object-fit:cover;display:block;}
+  .benefit-video-caption{
+    font-size:0.72rem;
+    letter-spacing:0.06em;
+    text-align:center;
+    opacity:0.7;
+    margin-top:12px;
+  }
+  .benefit-card{
+    text-align:center;
+    padding:26px 10px;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+  }
+  .benefit-card:last-child{border-bottom:none;}
+  .benefit-card .b-title{
+    font-family:'Shippori Mincho',serif;
+    color:#E9C9A0;
+    font-weight:600;
+    font-size:1.05rem;
+    margin-bottom:10px;
+    letter-spacing:0.05em;
+  }
+  .benefit-card p{font-size:0.85rem;opacity:0.85;font-weight:300;}
+
+  /* ---------- 宿泊・飲食 ---------- */
+  section.stay-eat{background:var(--paper-deep);}
+  .subsection-title{
+    font-family:'Shippori Mincho',serif;
+    font-weight:600;
+    font-size:1.05rem;
+    color:var(--ink);
+    margin:38px 0 20px;
+    text-align:center;
+    letter-spacing:0.08em;
+  }
+  .lead-text{font-size:0.85rem;margin-bottom:6px;text-align:center;}
+  .yado-card, .gourmet-card{
+    padding:20px 0;
+    border-bottom:1px solid rgba(27,42,74,0.13);
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+  }
+  .card-icon{
+    flex-shrink:0;
+    width:52px;height:52px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1px solid rgba(176,134,80,0.45);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .card-icon svg{width:24px;height:24px;stroke:var(--gold);fill:none;stroke-width:1.3;}
+  .yado-card .card-body, .gourmet-card .card-body{flex:1;min-width:0;}
+  .yado-card .cat, .gourmet-card .cat{font-size:0.68rem;color:var(--gold);font-weight:500;margin-bottom:5px;letter-spacing:0.08em;}
+  .yado-card .name, .gourmet-card .name{font-family:'Shippori Mincho',serif;font-weight:600;font-size:0.98rem;color:var(--ink);margin-bottom:6px;}
+  .yado-card p, .gourmet-card p{font-size:0.82rem;}
+  .card-recommend{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+    font-size:0.78rem;
+    color:var(--ink);
+  }
+  .card-recommend .tag{
+    font-size:0.6rem;
+    font-weight:500;
+    color:var(--white);
+    background:var(--gold);
+    padding:3px 8px;
+    border-radius:2px;
+    letter-spacing:0.06em;
+    flex-shrink:0;
+    white-space:nowrap;
+  }
+
+  /* 宿泊カード：写真あり版 */
+  .yado-photo-card{
+    margin-bottom:26px;
+    border-bottom:none;
+    display:block;
+  }
+  .yado-photo-card .photo-wrap{
+    width:100%;height:190px;
+    overflow:hidden;
+    margin-bottom:14px;
+  }
+  .yado-photo-card .photo-wrap img{width:100%;height:100%;object-fit:cover;}
+  .yado-photo-card .card-body{padding:0 2px;}
+  .price-note{
+    border:1px solid var(--gold);
+    padding:20px 16px;
+    text-align:center;
+    font-family:'Shippori Mincho',serif;
+    font-size:0.95rem;
+    font-weight:600;
+    color:var(--ink);
+    margin:26px 0 30px;
+  }
+  .price-note span{display:block;font-size:0.72rem;font-weight:300;color:var(--charcoal);margin-top:6px;font-family:'Noto Sans JP',sans-serif;}
+
+  /* ---------- 声 ---------- */
+  section.voices{background:var(--white);}
+  .voice-card{
+    padding:24px 0;
+    border-bottom:1px solid rgba(27,42,74,0.12);
+  }
+  .voice-card:first-of-type{border-top:1px solid rgba(27,42,74,0.12);}
+  .voice-card p.comment{font-size:0.87rem;margin:8px 0 12px;font-style:italic;}
+  .voice-card .attribution{font-size:0.72rem;color:var(--gold);font-weight:500;text-align:right;}
+  .voice-tag{
+    display:inline-block;
+    font-size:0.65rem;
+    font-weight:500;
+    color:var(--ink);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+
+  /* ---------- FAQ ---------- */
+  section.faq{background:var(--paper-deep);}
+  .faq-item{
+    border-bottom:1px solid rgba(27,42,74,0.15);
+  }
+  .faq-item:first-child{border-top:1px solid rgba(27,42,74,0.15);}
+  .faq-q{
+    padding:18px 4px;
+    font-weight:500;
+    font-size:0.85rem;
+    display:flex;justify-content:space-between;align-items:center;
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .faq-q .q-mark{color:var(--gold);margin-right:10px;font-family:'Shippori Mincho',serif;}
+  .faq-q .chevron{transition:transform .3s ease;font-size:0.7rem;color:var(--gold);flex-shrink:0;margin-left:10px;}
+  .faq-item.open .chevron{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease, padding .35s ease;
+    font-size:0.82rem;
+    padding:0 4px;
+    color:var(--charcoal);
+  }
+  .faq-item.open .faq-a{max-height:260px;padding:0 4px 20px;}
+
+  /* ---------- Closing CTA ---------- */
+  section.closing{
+    background:var(--ink);
+    color:var(--white);
+    text-align:center;
+  }
+  section.closing .eyebrow{color:#E9C9A0;}
+  section.closing p.lead{font-size:0.88rem;margin-bottom:32px;opacity:0.85;}
+  .closing-mascot{width:120px;margin:0 auto 16px;}
+  .closing .speech-bubble{
+    display:inline-block;
+    margin-bottom:32px;
+  }
+
+  /* ---------- Footer / Contact ---------- */
+  footer{
+    background:#101C34;
+    color:rgba(255,255,255,0.65);
+    padding:44px 28px 100px;
+    font-size:0.76rem;
+    text-align:center;
+  }
+  footer .foot-logo{
+    font-family:'Shippori Mincho',serif;
+    color:var(--white);
+    font-weight:600;
+    font-size:1rem;
+    margin-bottom:14px;
+    letter-spacing:0.08em;
+  }
+  footer .foot-note{margin-bottom:26px;line-height:2;}
+  footer .foot-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 20px;margin-bottom:22px;}
+  footer .foot-links a{text-decoration:underline;text-underline-offset:3px;}
+  footer .operator-info{
+    font-size:0.68rem;
+    line-height:2;
+    opacity:0.55;
+    border-top:1px solid rgba(255,255,255,0.15);
+    padding-top:18px;
+    margin-bottom:18px;
+    text-align:left;
+  }
+  footer .operator-info-title{
+    font-weight:500;color:rgba(255,255,255,0.8);margin-bottom:6px;letter-spacing:0.08em;
+  }
+
+  /* ---------- Sticky bottom bar ---------- */
+  .sticky-cta{
+    position:fixed;
+    bottom:0;left:0;right:0;
+    max-width:560px;
+    margin:0 auto;
+    background:var(--white);
+    box-shadow:0 -4px 20px rgba(0,0,0,0.1);
+    padding:12px 18px;
+    display:flex;
+    gap:10px;
+    z-index:60;
+  }
+  .sticky-cta .btn{flex:1;padding:14px 8px;font-size:0.75rem;min-width:0;letter-spacing:0.03em;}
+  .sticky-cta .btn-primary{background:var(--accent);color:var(--white);}
+  .sticky-cta .btn-line{background:#06C755;color:var(--white);}
+
+  #contact, #event-info, #stay-eat, #voices, #faq, #reel{scroll-margin-top:70px;}
+  #reserve{scroll-margin-top:70px;}
+
+  @media (min-width:561px){
+    .wrap{margin:24px auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo"><img src="images/c3_nonbiri.png" alt=""> とおまち夏花火ナイト</div>
+  <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="cta-mini">予約</a>
+</header>
+
+<div class="wrap">
+
+  <!-- ① FV : video hero -->
+  <section class="fv">
+    <video class="fallback" autoplay muted loop playsinline poster="images/a1_fireworks.jpg">
+      <source src="images/hero-fireworks.mp4" type="video/mp4">
+    </video>
+    <div class="fv-content">
+      <span class="eyebrow">Toomachi Summer Fireworks Night ／ とおまち夏花火ナイト</span>
+      <h1><span>今年の夏、</span><span>まだ予定決まってない人へ。</span></h1>
+      <p class="sub">有名じゃなくていい。ちょっと懐かしい夏を、とおまちで。</p>
+      <div class="mascot-row">
+        <img src="images/c3_nonbiri.png" alt="マスコットの灯真">
+        <div class="speech-bubble">今年の夏も、とおまちでわたしと一緒に、夏を灯そうよ。</div>
+      </div>
+      <div class="cta-group">
+        <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-primary">席を予約しておく</a>
+        <a href="#contact" class="btn btn-outline">LINEで宿を相談する</a>
+      </div>
+    </div>
+    <div class="scroll-cue"><span class="line"></span></div>
+  </section>
+
+  <!-- Reel showcase -->
+  <section class="reel-showcase" id="reel">
+    <span class="eyebrow reveal">WATCH THE REEL</span>
+    <h2 class="section-title reveal">動画で、先に雰囲気を。</h2>
+    <div class="divider reveal"></div>
+    <div class="reel-frame reveal" id="reelFrame" onclick="playReel()">
+      <video id="reelVideo" playsinline preload="none" poster="images/reel-poster.jpg">
+        <source src="images/reel-embed.mp4" type="video/mp4">
+      </video>
+      <div class="play-badge"><div class="circle"></div></div>
+    </div>
+    <p class="reel-caption reveal">Instagramで公開中のリールと同じ映像です。とおまちの一晩を、30数秒で。</p>
+  </section>
+
+  <!-- ② 共感（楽しみのシンクロ） -->
+  <section class="pain">
+    <span class="eyebrow reveal">SUMMER, FIREWORKS</span>
+    <h2 class="section-title reveal">夏はやっぱり、<br>花火だよね。</h2>
+    <div class="divider reveal"></div>
+    <ul class="arualru-list reveal">
+      <li>今年こそ、浴衣を着て出かけたい</li>
+      <li>混みすぎない場所で、ゆったり花火を見たい</li>
+      <li>気合いを入れなくても、ふらっと行けるところがいい</li>
+    </ul>
+    <div class="mascot-speech reveal">
+      <img src="images/c2_odoroki.png" alt="笑顔の灯真">
+      <div class="speech-bubble">その気持ち、わかるよ。とおまちなら、ちょうどいい。</div>
+    </div>
+  </section>
+
+  <!-- ③ 解決 -->
+  <section class="solution on-white">
+    <span class="eyebrow reveal">SOLUTION</span>
+    <h2 class="section-title reveal">とおまちは、<br>ちょうどいい。</h2>
+    <div class="divider reveal"></div>
+    <p class="lead reveal">駅から歩いてすぐ。川沿いに、ゆるく人が集まるくらいの賑わい。混みすぎないから、座って、話しながら、ゆったり花火が見られる。気合いを入れなくても、ふらっと行けるくらいが、ちょうどいい。</p>
+    <ul class="point-list reveal">
+      <li><span class="point-num">一</span>ちょうどいい規模感（約3,000発、川幅が近くて迫力あり）</li>
+      <li><span class="point-num">二</span>混雑が激しくない＝ゆったり観覧できる</li>
+      <li><span class="point-num">三</span>駅から徒歩圏内でアクセスしやすい</li>
+    </ul>
+  </section>
+
+  <!-- ④ イベント概要 -->
+  <section class="event-info" id="event-info">
+    <span class="eyebrow reveal">EVENT INFO</span>
+    <h2 class="section-title reveal">とおまち夏花火ナイト</h2>
+    <div class="divider reveal"></div>
+    <table class="info-table reveal">
+      <tr><th>開催日</th><td>8月中旬の土曜（年1回開催）</td></tr>
+      <tr><th>会場</th><td>とおまち川河川敷</td></tr>
+      <tr><th>アクセス</th><td>とおまち駅から徒歩約10分。駐車場は台数限定のため、公共交通機関のご利用がおすすめです。</td></tr>
+      <tr><th>入場</th><td>無料（観覧エリア指定なし・予約不要）</td></tr>
+      <tr><th>有料観覧席</th><td>¥1,500（税込）／1名（事前予約制・先着）</td></tr>
+    </table>
+    <div class="note-box reveal">ゆったり座って見たいなら、観覧席の予約がおすすめ。予約なしでも、ちゃんと楽しめます。</div>
+    <div style="text-align:center;" class="reveal"><a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-ink-outline">席を予約しておく</a></div>
+  </section>
+
+  <!-- ⑤ 来場シーン -->
+  <section class="scenes">
+    <span class="eyebrow reveal">A NIGHT IN TOOMACHI</span>
+    <h2 class="section-title reveal">とおまちで過ごす、<br>ひと晩の流れ</h2>
+    <div class="divider reveal"></div>
+
+    <div class="scene-card reveal">
+      <video autoplay muted loop playsinline poster="images/a2_yomise.jpg">
+        <source src="images/scene1-yomise.mp4" type="video/mp4">
+      </video>
+      <div class="scene-body">
+        <span class="scene-tag">Scene 1 ｜ 商店街の食べ歩き</span>
+        <p>夕方に着いて、商店街をぶらぶら。手書きの幕がゆれる屋台で、まずは腹ごしらえ。</p>
+      </div>
+    </div>
+
+    <div class="scene-card reveal">
+      <video autoplay muted loop playsinline poster="images/scene2-poster.jpg">
+        <source src="images/scene2-hanabi.mp4" type="video/mp4">
+      </video>
+      <div class="scene-body">
+        <span class="scene-tag">Scene 2 ｜ 観覧エリアからの花火</span>
+        <p>日が落ちたら、河川敷へ。ちょうどいい人の賑わいの中、夜空いっぱいに花火が上がる。</p>
+      </div>
+    </div>
+
+    <div class="scene-card reveal" style="margin-bottom:0;">
+      <video autoplay muted loop playsinline poster="images/a5_yamanoakari.jpg">
+        <source src="images/scene3-yado.mp4" type="video/mp4">
+      </video>
+      <div class="scene-body">
+        <span class="scene-tag">Scene 3 ｜ 宿泊した夜の町の雰囲気</span>
+        <p>その夜は町に泊まって、翌朝もゆっくり。祭りのあとの静かな時間も、とおまちらしい。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ ベネフィット -->
+  <section class="benefit">
+    <span class="eyebrow reveal">BENEFIT</span>
+    <h2 class="section-title reveal" style="color:#fff;">とおまちで見つかる、<br>3つの「ちょうどいい」</h2>
+    <div class="divider reveal"></div>
+    <div class="benefit-card reveal">
+      <div class="b-title">懐かしさ</div>
+      <p>昭和から変わらない町並みが、今も現役。どこか懐かしい夏がここにある。</p>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="b-title">非日常</div>
+      <p>いつもの街から少し離れるだけで、気分はちゃんと"旅"になる。</p>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="b-title">ちょうどいい賑わい</div>
+      <p>混みすぎず、静かすぎず。ひとりでも、友達とでも、心地よく過ごせる賑わい。</p>
+    </div>
+    <div class="benefit-video reveal">
+      <video autoplay muted loop playsinline>
+        <source src="images/benefit-crowd.mp4" type="video/mp4">
+      </video>
+    </div>
+    <p class="benefit-video-caption reveal">実際の観覧エリアの雰囲気（当日の様子）</p>
+  </section>
+
+  <!-- ⑦ 宿泊・飲食店 -->
+  <section class="stay-eat" id="stay-eat">
+    <span class="eyebrow reveal">STAY &amp; EAT</span>
+    <h2 class="section-title reveal">とおまちに泊まる、<br>とおまちで食べる</h2>
+    <div class="divider reveal"></div>
+    <p class="lead-text reveal">町内の宿は数に限りがあります。気になる宿が見つかったら、LINEで気軽に空室を相談してみてください。</p>
+
+    <div class="subsection-title reveal">宿泊施設</div>
+    <div class="yado-card yado-photo-card reveal">
+      <div class="photo-wrap"><img src="images/a5_yamanoakari.jpg" alt="山のあかり旅館の外観"></div>
+      <div class="card-body">
+        <div class="cat">和風旅館</div>
+        <div class="name">山のあかり</div>
+        <p>町の歴史を感じる、落ち着いた佇まいの旅館。駐車場あり。</p>
+      </div>
+    </div>
+    <div class="yado-card yado-photo-card reveal">
+      <div class="photo-wrap"><img src="images/a6_kawasemi.jpg" alt="民宿かわせみの外観"></div>
+      <div class="card-body">
+        <div class="cat">民宿</div>
+        <div class="name">民宿かわせみ</div>
+        <p>一軒家を改装した、家族経営のあたたかい宿。</p>
+      </div>
+    </div>
+    <div class="yado-card yado-photo-card reveal" style="margin-bottom:36px;">
+      <div class="photo-wrap"><img src="images/a6b_station_hotel.jpg" alt="とおまちステーションホテルの外観"></div>
+      <div class="card-body">
+        <div class="cat">小規模ビジネスホテル</div>
+        <div class="name">とおまちステーションホテル</div>
+        <p>駅からも会場からも近い、身軽に泊まれるホテル。</p>
+      </div>
+    </div>
+
+    <div class="price-note reveal">
+      1泊2食付き：¥9,000円台〜
+      <span>施設により異なります。詳しい料金・空室はLINEでご相談ください。</span>
+    </div>
+
+    <div class="subsection-title reveal">飲食店</div>
+    <div class="gourmet-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a8 8 0 01-16 0z"/><path d="M9 12V7M15 12V7"/></svg></div>
+      <div class="card-body">
+        <div class="cat">定食</div><div class="name">食堂まるいち</div><p>町の定番、飾らない定食屋。</p>
+        <p class="card-recommend"><span class="tag">定番</span>焼き魚定食・日替わりランチ</p>
+      </div>
+    </div>
+    <div class="gourmet-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 16 5l4 4-12 12H4v-4z"/></svg></div>
+      <div class="card-body">
+        <div class="cat">寿司・割烹</div><div class="name">割烹とおまつ</div><p>特別な夜に、腕利きの一皿を。</p>
+        <p class="card-recommend"><span class="tag">おすすめ</span>季節のおまかせ握り</p>
+      </div>
+    </div>
+    <div class="gourmet-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c4-5 13-5 17 0-4 5-13 5-17 0z"/><path d="M19 12l2.5-2.5M19 12l2.5 2.5"/></svg></div>
+      <div class="card-body">
+        <div class="cat">郷土料理・うなぎ</div><div class="name">うなぎ処川源</div><p>川のそばで受け継がれる、うなぎの老舗。</p>
+        <p class="card-recommend"><span class="tag">名物</span>うな重（特上）</p>
+      </div>
+    </div>
+    <div class="gourmet-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v6a2 2 0 004 0V3M10 9v12"/><path d="M16 3v6a2 2 0 002 2v10"/></svg></div>
+      <div class="card-body">
+        <div class="cat">洋食</div><div class="name">洋食キッチンひまわり</div><p>懐かしい洋食屋の味、子どもから大人まで。</p>
+        <p class="card-recommend"><span class="tag">人気</span>オムライス・ハンバーグ</p>
+      </div>
+    </div>
+    <div class="gourmet-card reveal">
+      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v6a5 5 0 01-5 5H9a5 5 0 01-5-5V8z"/><path d="M17 9.5h1.5a2 2 0 010 4H17"/><path d="M7.5 3c0 1-1 1-1 2M11.5 3c0 1-1 1-1 2"/></svg></div>
+      <div class="card-body">
+        <div class="cat">喫茶店</div><div class="name">純喫茶あかり</div><p>昭和の空気そのままの、休憩にぴったりな喫茶店。</p>
+        <p class="card-recommend"><span class="tag">定番</span>ナポリタン・自家製プリン</p>
+      </div>
+    </div>
+    <div class="gourmet-card reveal" style="border-bottom:none;">
+      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-7 8z"/><path d="M12 12v7M9 19h6"/></svg></div>
+      <div class="card-body">
+        <div class="cat">バー兼カフェ</div><div class="name">café &amp; bar ひとやすみ</div><p>昼はカフェ、夜はバー。宿泊の夜にも使いやすい一軒。</p>
+        <p class="card-recommend"><span class="tag">おすすめ</span>生ビール・自家製おつまみ盛り</p>
+      </div>
+    </div>
+
+    <div style="margin-top:30px;text-align:center;" class="reveal">
+      <a href="#contact" class="btn btn-line">気になる宿をLINEで相談する</a>
+    </div>
+  </section>
+
+  <!-- ⑧ 来場者の声 -->
+  <section class="voices" id="voices">
+    <span class="eyebrow reveal">VOICE</span>
+    <h2 class="section-title reveal">来場者の声</h2>
+    <div class="divider reveal"></div>
+
+    <div class="voice-card reveal">
+      <span class="voice-tag">共感</span>
+      <p class="comment">正直、花火大会ってどこも混んでて疲れるイメージだったんですが、ここは思ったよりゆったり見られて、ふらっと来てよかったです。</p>
+      <div class="attribution">27歳 女性／会社員（隣県在住）</div>
+    </div>
+    <div class="voice-card reveal">
+      <span class="voice-tag">体験</span>
+      <p class="comment">商店街の出店を見ながら歩くだけでも楽しくて、花火が始まる前から十分楽しめました。</p>
+      <div class="attribution">30代 男性／カップルで来場</div>
+    </div>
+    <div class="voice-card reveal">
+      <span class="voice-tag">アクセス</span>
+      <p class="comment">駅からすぐだったので、思っていたより気軽に行けました。</p>
+      <div class="attribution">33歳 女性／友人グループで来場</div>
+    </div>
+    <div class="voice-card reveal">
+      <span class="voice-tag">また来たい</span>
+      <p class="comment">派手さよりも、ゆったりした雰囲気が良くて、また来てもいいかなと思いました。</p>
+      <div class="attribution">40代 女性／家族で来場</div>
+    </div>
+  </section>
+
+  <!-- ⑨ FAQ -->
+  <section class="faq" id="faq">
+    <span class="eyebrow reveal">FAQ</span>
+    <h2 class="section-title reveal">よくある質問</h2>
+    <div class="divider reveal"></div>
+
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>予約は必須ですか？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>日帰り観覧は予約不要です。ゆったり座って見たい場合は、有料観覧席のご予約をおすすめします。</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>アクセス方法は？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>最寄り駅から徒歩約10分です。当日は周辺道路が混雑するため、お車でのご来場はおすすめしておりません。</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>雨天の場合はどうなりますか？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>小雨決行です。荒天時は翌日に延期となる場合があります。最新情報は当日公式LINEでご案内します。</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>子供連れでも楽しめますか？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>はい。混雑が激しくない規模感のため、お子様連れのご家族にも来場いただいています。</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>宿泊先はどうやって決めればいいですか？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>LP内でご紹介している町内の宿泊施設から気になるところをお選びいただき、公式LINEからお気軽にご相談ください。空室状況やプラン内容について、スタッフが個別にご案内します。</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>観覧席のキャンセルはできますか？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>有料観覧席は前日17時まで無料でキャンセル可能です。</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>どのくらい混みますか？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>都市部の大規模花火大会に比べると、混雑は穏やかです。ゆったり過ごしたい方に向いています。</p></div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>屋台・食事は楽しめますか？</span><span class="chevron">＋</span></div>
+      <div class="faq-a"><p>商店街エリアに多数の出店が並びます。食べ歩きグルメも楽しみのひとつです。</p></div>
+    </div>
+  </section>
+
+  <!-- ⑩ Closing CTA -->
+  <section class="closing" id="reserve">
+    <span class="eyebrow reveal">SEE YOU THIS SUMMER</span>
+    <h2 class="section-title reveal" style="color:#fff;">今年の夏は、とおまちで。</h2>
+    <div class="divider reveal"></div>
+    <p class="lead reveal">気合いを入れなくていい。ふらっと来て、ちょうどいい夏を過ごしてほしい。</p>
+    <img class="closing-mascot reveal" src="images/c1_temaneki.png" alt="手を振る灯真">
+    <div class="speech-bubble reveal" style="display:inline-block;">灯りの下で、待ってるよ。</div>
+    <div class="cta-group reveal" style="margin-top:20px;">
+      <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-primary">席を予約しておく</a>
+      <a href="#contact" class="btn btn-line">LINEで宿を相談する</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact">
+    <div class="foot-logo">とおまち夏花火ナイト</div>
+    <div class="foot-note">
+      観覧席のご予約・宿泊施設のご相談は、公式LINEよりお気軽にどうぞ。<br>
+      スタッフが個別にご案内します。
+      <br><br>
+      ※本ページはWebデザイン課題として制作したものです。観覧席予約フォームは実際に機能します。LINE連携ボタンはダミーリンクです。
+    </div>
+    <div class="cta-group" style="margin-bottom:26px;">
+      <a href="#" class="btn btn-line">公式LINEを友だち追加する</a>
+      <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:var(--gold);">観覧席予約フォームへ</a>
+    </div>
+    <div class="foot-links">
+      <a href="#event-info">開催概要</a>
+      <a href="#stay-eat">宿泊・飲食</a>
+      <a href="#voices">来場者の声</a>
+      <a href="#faq">よくある質問</a>
+    </div>
+    <div class="operator-info">
+      <div class="operator-info-title">主催</div>
+      とおまち観光協会（※架空）<br>
+      〒999-0000　とおまち市本町1-1　とおまち観光会館内<br>
+      代表者：会長 山本 健一　／　設立：1998年4月<br>
+      事業内容：地域観光イベントの企画・運営、観光プラン販売、地域プロモーション<br>
+      お問い合わせ：info@toomachi-kanko.jp（※架空）<br>
+      営業時間：平日 9:00〜17:00（夏季イベント期間中は土日対応あり）
+    </div>
+    <div style="opacity:0.5;">© とおまち夏花火ナイト実行委員会（課題制作）</div>
+  </footer>
+
+</div><!-- /.wrap -->
+
+<div class="sticky-cta">
+  <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-primary">席を予約する</a>
+  <a href="#contact" class="btn btn-line">LINEで相談</a>
+</div>
+
+<script>
+function toggleFaq(el){
+  var item = el.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){ i.classList.remove('open'); });
+  if(!wasOpen){ item.classList.add('open'); }
+}
+
+function playReel(){
+  var frame = document.getElementById('reelFrame');
+  var vid = document.getElementById('reelVideo');
+  if(frame.classList.contains('playing')){
+    vid.paused ? vid.play() : vid.pause();
+    return;
+  }
+  frame.classList.add('playing');
+  vid.muted = false;
+  vid.play();
+}
+
+// scroll reveal
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+    }
+  });
+}, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+
+document.querySelectorAll('.reveal').forEach(function(el, i){
+  el.classList.add('reveal-delay-' + ((i % 3) + 1 <= 3 ? (i % 3) : 0));
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
