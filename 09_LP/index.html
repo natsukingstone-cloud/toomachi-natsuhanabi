@@ -617,6 +617,88 @@
   @media (min-width:561px){
     .wrap{margin:24px auto;}
   }
+
+  /* ==================================================================
+     デスクトップ幅（900px〜）レスポンシブ対応
+     ================================================================== */
+  @media (min-width:900px){
+    .wrap{max-width:1100px;}
+    .site-header{max-width:1100px;}
+    .sticky-cta{max-width:1100px;}
+    section{padding:100px 64px;}
+
+    /* 文章系は読みやすい幅に収めて中央寄せ */
+    .fv-content{max-width:640px;margin:0 auto;}
+    .solution p.lead,
+    .arualru-list,
+    .point-list,
+    .note-box,
+    .info-table,
+    .lead-text,
+    .subsection-title,
+    .price-note{
+      max-width:640px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .reel-frame{width:260px;}
+    .reel-caption{max-width:420px;margin-left:auto;margin-right:auto;}
+
+    /* シーン紹介：3カラム */
+    .scene-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:36px;
+    }
+    .scene-card{margin-bottom:0;}
+
+    /* ベネフィット：3カラム */
+    .benefit-cards-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:4px;
+      max-width:920px;
+      margin:0 auto;
+    }
+    .benefit-card{border-bottom:none;border-right:1px solid rgba(255,255,255,0.14);}
+    .benefit-card:last-child{border-right:none;}
+    .benefit-video{max-width:820px;margin-left:auto;margin-right:auto;margin-top:40px;}
+    .benefit-video video{height:340px;}
+    .benefit-video-caption{max-width:820px;margin-left:auto;margin-right:auto;}
+
+    /* 宿泊：3カラム */
+    .yado-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:28px;
+    }
+    .yado-photo-card{margin-bottom:0;}
+
+    /* 飲食店：2カラム */
+    .gourmet-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:0 48px;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .gourmet-grid .gourmet-card:nth-last-child(2){border-bottom:none;}
+
+    /* 来場者の声：2カラム */
+    .voice-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:0 48px;
+      max-width:900px;
+      margin:0 auto;
+    }
+    .voice-grid .voice-card:nth-child(2){border-top:1px solid rgba(27,42,74,0.12);}
+
+    .faq-item{max-width:680px;margin-left:auto;margin-right:auto;}
+
+    .foot-note{max-width:640px;margin:0 auto 26px;}
+    .operator-info{max-width:640px;margin-left:auto;margin-right:auto;}
+  }
 </style>
 </head>
 <body>
@@ -714,33 +796,35 @@
     <h2 class="section-title reveal">とおまちで過ごす、<br>ひと晩の流れ</h2>
     <div class="divider reveal"></div>
 
-    <div class="scene-card reveal">
-      <video autoplay muted loop playsinline poster="images/a2_yomise.jpg">
-        <source src="images/scene1-yomise.mp4" type="video/mp4">
-      </video>
-      <div class="scene-body">
-        <span class="scene-tag">Scene 1 ｜ 商店街の食べ歩き</span>
-        <p>夕方に着いて、商店街をぶらぶら。手書きの幕がゆれる屋台で、まずは腹ごしらえ。</p>
+    <div class="scene-grid">
+      <div class="scene-card reveal">
+        <video autoplay muted loop playsinline poster="images/a2_yomise.jpg">
+          <source src="images/scene1-yomise.mp4" type="video/mp4">
+        </video>
+        <div class="scene-body">
+          <span class="scene-tag">Scene 1 ｜ 商店街の食べ歩き</span>
+          <p>夕方に着いて、商店街をぶらぶら。手書きの幕がゆれる屋台で、まずは腹ごしらえ。</p>
+        </div>
       </div>
-    </div>
 
-    <div class="scene-card reveal">
-      <video autoplay muted loop playsinline poster="images/scene2-poster.jpg">
-        <source src="images/scene2-hanabi.mp4" type="video/mp4">
-      </video>
-      <div class="scene-body">
-        <span class="scene-tag">Scene 2 ｜ 観覧エリアからの花火</span>
-        <p>日が落ちたら、河川敷へ。ちょうどいい人の賑わいの中、夜空いっぱいに花火が上がる。</p>
+      <div class="scene-card reveal">
+        <video autoplay muted loop playsinline poster="images/scene2-poster.jpg">
+          <source src="images/scene2-hanabi.mp4" type="video/mp4">
+        </video>
+        <div class="scene-body">
+          <span class="scene-tag">Scene 2 ｜ 観覧エリアからの花火</span>
+          <p>日が落ちたら、河川敷へ。ちょうどいい人の賑わいの中、夜空いっぱいに花火が上がる。</p>
+        </div>
       </div>
-    </div>
 
-    <div class="scene-card reveal" style="margin-bottom:0;">
-      <video autoplay muted loop playsinline poster="images/a5_yamanoakari.jpg">
-        <source src="images/scene3-yado.mp4" type="video/mp4">
-      </video>
-      <div class="scene-body">
-        <span class="scene-tag">Scene 3 ｜ 宿泊した夜の町の雰囲気</span>
-        <p>その夜は町に泊まって、翌朝もゆっくり。祭りのあとの静かな時間も、とおまちらしい。</p>
+      <div class="scene-card reveal" style="margin-bottom:0;">
+        <video autoplay muted loop playsinline poster="images/a5_yamanoakari.jpg">
+          <source src="images/scene3-yado.mp4" type="video/mp4">
+        </video>
+        <div class="scene-body">
+          <span class="scene-tag">Scene 3 ｜ 宿泊した夜の町の雰囲気</span>
+          <p>その夜は町に泊まって、翌朝もゆっくり。祭りのあとの静かな時間も、とおまちらしい。</p>
+        </div>
       </div>
     </div>
   </section>
@@ -750,17 +834,19 @@
     <span class="eyebrow reveal">BENEFIT</span>
     <h2 class="section-title reveal" style="color:#fff;">とおまちで見つかる、<br>3つの「ちょうどいい」</h2>
     <div class="divider reveal"></div>
-    <div class="benefit-card reveal">
-      <div class="b-title">懐かしさ</div>
-      <p>昭和から変わらない町並みが、今も現役。どこか懐かしい夏がここにある。</p>
-    </div>
-    <div class="benefit-card reveal">
-      <div class="b-title">非日常</div>
-      <p>いつもの街から少し離れるだけで、気分はちゃんと"旅"になる。</p>
-    </div>
-    <div class="benefit-card reveal">
-      <div class="b-title">ちょうどいい賑わい</div>
-      <p>混みすぎず、静かすぎず。ひとりでも、友達とでも、心地よく過ごせる賑わい。</p>
+    <div class="benefit-cards-grid">
+      <div class="benefit-card reveal">
+        <div class="b-title">懐かしさ</div>
+        <p>昭和から変わらない町並みが、今も現役。どこか懐かしい夏がここにある。</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="b-title">非日常</div>
+        <p>いつもの街から少し離れるだけで、気分はちゃんと"旅"になる。</p>
+      </div>
+      <div class="benefit-card reveal">
+        <div class="b-title">ちょうどいい賑わい</div>
+        <p>混みすぎず、静かすぎず。ひとりでも、友達とでも、心地よく過ごせる賑わい。</p>
+      </div>
     </div>
     <div class="benefit-video reveal">
       <video autoplay muted loop playsinline>
@@ -778,28 +864,30 @@
     <p class="lead-text reveal">町内の宿は数に限りがあります。気になる宿が見つかったら、LINEで気軽に空室を相談してみてください。</p>
 
     <div class="subsection-title reveal">宿泊施設</div>
-    <div class="yado-card yado-photo-card reveal">
-      <div class="photo-wrap"><img src="images/a5_yamanoakari.jpg" alt="山のあかり旅館の外観"></div>
-      <div class="card-body">
-        <div class="cat">和風旅館</div>
-        <div class="name">山のあかり</div>
-        <p>町の歴史を感じる、落ち着いた佇まいの旅館。駐車場あり。</p>
+    <div class="yado-grid">
+      <div class="yado-card yado-photo-card reveal">
+        <div class="photo-wrap"><img src="images/a5_yamanoakari.jpg" alt="山のあかり旅館の外観"></div>
+        <div class="card-body">
+          <div class="cat">和風旅館</div>
+          <div class="name">山のあかり</div>
+          <p>町の歴史を感じる、落ち着いた佇まいの旅館。駐車場あり。</p>
+        </div>
       </div>
-    </div>
-    <div class="yado-card yado-photo-card reveal">
-      <div class="photo-wrap"><img src="images/a6_kawasemi.jpg" alt="民宿かわせみの外観"></div>
-      <div class="card-body">
-        <div class="cat">民宿</div>
-        <div class="name">民宿かわせみ</div>
-        <p>一軒家を改装した、家族経営のあたたかい宿。</p>
+      <div class="yado-card yado-photo-card reveal">
+        <div class="photo-wrap"><img src="images/a6_kawasemi.jpg" alt="民宿かわせみの外観"></div>
+        <div class="card-body">
+          <div class="cat">民宿</div>
+          <div class="name">民宿かわせみ</div>
+          <p>一軒家を改装した、家族経営のあたたかい宿。</p>
+        </div>
       </div>
-    </div>
-    <div class="yado-card yado-photo-card reveal" style="margin-bottom:36px;">
-      <div class="photo-wrap"><img src="images/a6b_station_hotel.jpg" alt="とおまちステーションホテルの外観"></div>
-      <div class="card-body">
-        <div class="cat">小規模ビジネスホテル</div>
-        <div class="name">とおまちステーションホテル</div>
-        <p>駅からも会場からも近い、身軽に泊まれるホテル。</p>
+      <div class="yado-card yado-photo-card reveal" style="margin-bottom:36px;">
+        <div class="photo-wrap"><img src="images/a6b_station_hotel.jpg" alt="とおまちステーションホテルの外観"></div>
+        <div class="card-body">
+          <div class="cat">小規模ビジネスホテル</div>
+          <div class="name">とおまちステーションホテル</div>
+          <p>駅からも会場からも近い、身軽に泊まれるホテル。</p>
+        </div>
       </div>
     </div>
 
@@ -809,46 +897,48 @@
     </div>
 
     <div class="subsection-title reveal">飲食店</div>
-    <div class="gourmet-card reveal">
-      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a8 8 0 01-16 0z"/><path d="M9 12V7M15 12V7"/></svg></div>
-      <div class="card-body">
-        <div class="cat">定食</div><div class="name">食堂まるいち</div><p>町の定番、飾らない定食屋。</p>
-        <p class="card-recommend"><span class="tag">定番</span>焼き魚定食・日替わりランチ</p>
+    <div class="gourmet-grid">
+      <div class="gourmet-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a8 8 0 01-16 0z"/><path d="M9 12V7M15 12V7"/></svg></div>
+        <div class="card-body">
+          <div class="cat">定食</div><div class="name">食堂まるいち</div><p>町の定番、飾らない定食屋。</p>
+          <p class="card-recommend"><span class="tag">定番</span>焼き魚定食・日替わりランチ</p>
+        </div>
       </div>
-    </div>
-    <div class="gourmet-card reveal">
-      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 16 5l4 4-12 12H4v-4z"/></svg></div>
-      <div class="card-body">
-        <div class="cat">寿司・割烹</div><div class="name">割烹とおまつ</div><p>特別な夜に、腕利きの一皿を。</p>
-        <p class="card-recommend"><span class="tag">おすすめ</span>季節のおまかせ握り</p>
+      <div class="gourmet-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17 16 5l4 4-12 12H4v-4z"/></svg></div>
+        <div class="card-body">
+          <div class="cat">寿司・割烹</div><div class="name">割烹とおまつ</div><p>特別な夜に、腕利きの一皿を。</p>
+          <p class="card-recommend"><span class="tag">おすすめ</span>季節のおまかせ握り</p>
+        </div>
       </div>
-    </div>
-    <div class="gourmet-card reveal">
-      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c4-5 13-5 17 0-4 5-13 5-17 0z"/><path d="M19 12l2.5-2.5M19 12l2.5 2.5"/></svg></div>
-      <div class="card-body">
-        <div class="cat">郷土料理・うなぎ</div><div class="name">うなぎ処川源</div><p>川のそばで受け継がれる、うなぎの老舗。</p>
-        <p class="card-recommend"><span class="tag">名物</span>うな重（特上）</p>
+      <div class="gourmet-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c4-5 13-5 17 0-4 5-13 5-17 0z"/><path d="M19 12l2.5-2.5M19 12l2.5 2.5"/></svg></div>
+        <div class="card-body">
+          <div class="cat">郷土料理・うなぎ</div><div class="name">うなぎ処川源</div><p>川のそばで受け継がれる、うなぎの老舗。</p>
+          <p class="card-recommend"><span class="tag">名物</span>うな重（特上）</p>
+        </div>
       </div>
-    </div>
-    <div class="gourmet-card reveal">
-      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v6a2 2 0 004 0V3M10 9v12"/><path d="M16 3v6a2 2 0 002 2v10"/></svg></div>
-      <div class="card-body">
-        <div class="cat">洋食</div><div class="name">洋食キッチンひまわり</div><p>懐かしい洋食屋の味、子どもから大人まで。</p>
-        <p class="card-recommend"><span class="tag">人気</span>オムライス・ハンバーグ</p>
+      <div class="gourmet-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v6a2 2 0 004 0V3M10 9v12"/><path d="M16 3v6a2 2 0 002 2v10"/></svg></div>
+        <div class="card-body">
+          <div class="cat">洋食</div><div class="name">洋食キッチンひまわり</div><p>懐かしい洋食屋の味、子どもから大人まで。</p>
+          <p class="card-recommend"><span class="tag">人気</span>オムライス・ハンバーグ</p>
+        </div>
       </div>
-    </div>
-    <div class="gourmet-card reveal">
-      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v6a5 5 0 01-5 5H9a5 5 0 01-5-5V8z"/><path d="M17 9.5h1.5a2 2 0 010 4H17"/><path d="M7.5 3c0 1-1 1-1 2M11.5 3c0 1-1 1-1 2"/></svg></div>
-      <div class="card-body">
-        <div class="cat">喫茶店</div><div class="name">純喫茶あかり</div><p>昭和の空気そのままの、休憩にぴったりな喫茶店。</p>
-        <p class="card-recommend"><span class="tag">定番</span>ナポリタン・自家製プリン</p>
+      <div class="gourmet-card reveal">
+        <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v6a5 5 0 01-5 5H9a5 5 0 01-5-5V8z"/><path d="M17 9.5h1.5a2 2 0 010 4H17"/><path d="M7.5 3c0 1-1 1-1 2M11.5 3c0 1-1 1-1 2"/></svg></div>
+        <div class="card-body">
+          <div class="cat">喫茶店</div><div class="name">純喫茶あかり</div><p>昭和の空気そのままの、休憩にぴったりな喫茶店。</p>
+          <p class="card-recommend"><span class="tag">定番</span>ナポリタン・自家製プリン</p>
+        </div>
       </div>
-    </div>
-    <div class="gourmet-card reveal" style="border-bottom:none;">
-      <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-7 8z"/><path d="M12 12v7M9 19h6"/></svg></div>
-      <div class="card-body">
-        <div class="cat">バー兼カフェ</div><div class="name">café &amp; bar ひとやすみ</div><p>昼はカフェ、夜はバー。宿泊の夜にも使いやすい一軒。</p>
-        <p class="card-recommend"><span class="tag">おすすめ</span>生ビール・自家製おつまみ盛り</p>
+      <div class="gourmet-card reveal" style="border-bottom:none;">
+        <div class="card-icon"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14l-7 8z"/><path d="M12 12v7M9 19h6"/></svg></div>
+        <div class="card-body">
+          <div class="cat">バー兼カフェ</div><div class="name">café &amp; bar ひとやすみ</div><p>昼はカフェ、夜はバー。宿泊の夜にも使いやすい一軒。</p>
+          <p class="card-recommend"><span class="tag">おすすめ</span>生ビール・自家製おつまみ盛り</p>
+        </div>
       </div>
     </div>
 
@@ -863,25 +953,27 @@
     <h2 class="section-title reveal">来場者の声</h2>
     <div class="divider reveal"></div>
 
-    <div class="voice-card reveal">
-      <span class="voice-tag">共感</span>
-      <p class="comment">正直、花火大会ってどこも混んでて疲れるイメージだったんですが、ここは思ったよりゆったり見られて、ふらっと来てよかったです。</p>
-      <div class="attribution">27歳 女性／会社員（隣県在住）</div>
-    </div>
-    <div class="voice-card reveal">
-      <span class="voice-tag">体験</span>
-      <p class="comment">商店街の出店を見ながら歩くだけでも楽しくて、花火が始まる前から十分楽しめました。</p>
-      <div class="attribution">30代 男性／カップルで来場</div>
-    </div>
-    <div class="voice-card reveal">
-      <span class="voice-tag">アクセス</span>
-      <p class="comment">駅からすぐだったので、思っていたより気軽に行けました。</p>
-      <div class="attribution">33歳 女性／友人グループで来場</div>
-    </div>
-    <div class="voice-card reveal">
-      <span class="voice-tag">また来たい</span>
-      <p class="comment">派手さよりも、ゆったりした雰囲気が良くて、また来てもいいかなと思いました。</p>
-      <div class="attribution">40代 女性／家族で来場</div>
+    <div class="voice-grid">
+      <div class="voice-card reveal">
+        <span class="voice-tag">共感</span>
+        <p class="comment">正直、花火大会ってどこも混んでて疲れるイメージだったんですが、ここは思ったよりゆったり見られて、ふらっと来てよかったです。</p>
+        <div class="attribution">27歳 女性／会社員（隣県在住）</div>
+      </div>
+      <div class="voice-card reveal">
+        <span class="voice-tag">体験</span>
+        <p class="comment">商店街の出店を見ながら歩くだけでも楽しくて、花火が始まる前から十分楽しめました。</p>
+        <div class="attribution">30代 男性／カップルで来場</div>
+      </div>
+      <div class="voice-card reveal">
+        <span class="voice-tag">アクセス</span>
+        <p class="comment">駅からすぐだったので、思っていたより気軽に行けました。</p>
+        <div class="attribution">33歳 女性／友人グループで来場</div>
+      </div>
+      <div class="voice-card reveal">
+        <span class="voice-tag">また来たい</span>
+        <p class="comment">派手さよりも、ゆったりした雰囲気が良くて、また来てもいいかなと思いました。</p>
+        <div class="attribution">40代 女性／家族で来場</div>
+      </div>
     </div>
   </section>
 
