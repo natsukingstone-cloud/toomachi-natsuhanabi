@@ -1304,7 +1304,21 @@ function launchFirework(x, y){
 
 document.querySelectorAll('.btn-primary, .btn-line').forEach(function(btn){
   btn.addEventListener('click', function(e){
+    var href = btn.getAttribute('href');
+    var isNewTab = btn.getAttribute('target') === '_blank';
+    e.preventDefault();
     launchFirework(e.clientX, e.clientY);
+    if(!href || href === '#'){ return; }
+    setTimeout(function(){
+      if(isNewTab){
+        window.open(href, '_blank', 'noopener');
+      } else if(href.charAt(0) === '#'){
+        var target = document.querySelector(href);
+        if(target){ target.scrollIntoView({behavior:'smooth'}); }
+      } else {
+        location.href = href;
+      }
+    }, 550);
   });
 });
 
