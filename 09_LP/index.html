@@ -1308,6 +1308,21 @@ document.querySelectorAll('.btn-primary, .btn-line').forEach(function(btn){
   });
 });
 
+// 画面に常時ふわっと打ち上がるアンビエント花火
+function ambientFireworksLoop(){
+  if(document.hidden){
+    setTimeout(ambientFireworksLoop, 2000);
+    return;
+  }
+  var x = Math.random() * window.innerWidth;
+  var y = window.innerHeight * (0.12 + Math.random() * 0.4);
+  launchFirework(x, y);
+  setTimeout(ambientFireworksLoop, 1800 + Math.random() * 2200);
+}
+if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  setTimeout(ambientFireworksLoop, 1200);
+}
+
 // scroll reveal
 var observer = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
