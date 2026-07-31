@@ -119,6 +119,20 @@
     .char-portrait{width:150px;}
   }
 
+  /* ---------- 世界観イラストカード ---------- */
+  .illust-card{
+    width:100%;
+    max-width:260px;
+    margin:0 auto 28px;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 16px 40px rgba(27,42,74,0.25);
+  }
+  .illust-card img{width:100%;display:block;}
+  @media (min-width:900px){
+    .illust-card{max-width:320px;}
+  }
+
   /* ---------- reveal-on-scroll ---------- */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.22,.8,.32,1), transform 1s cubic-bezier(.22,.8,.32,1);}
   .reveal.in-view{opacity:1;transform:translateY(0);}
@@ -142,9 +156,8 @@
   .fv-bg{
     position:absolute;inset:0;z-index:0;
     background:
-      radial-gradient(ellipse 60% 40% at 25% 15%, rgba(232,99,60,0.16) 0%, rgba(232,99,60,0) 60%),
-      radial-gradient(ellipse 55% 40% at 80% 75%, rgba(176,134,80,0.14) 0%, rgba(176,134,80,0) 60%),
-      linear-gradient(180deg, #16233F 0%, #1B2A4A 45%, #0F1830 100%);
+      linear-gradient(180deg, rgba(15,23,44,0.32) 0%, rgba(15,23,44,0.12) 30%, rgba(15,23,44,0.55) 78%, rgba(10,16,32,0.88) 100%),
+      url('images/fv-illust-bg.jpg') center 22% / cover no-repeat;
     animation:kenburns 18s ease-in-out infinite alternate;
   }
   @keyframes kenburns{
@@ -576,7 +589,10 @@
 
   /* ---------- Closing CTA ---------- */
   section.closing{
-    background:var(--ink);
+    background:
+      linear-gradient(180deg, rgba(15,23,44,0.55) 0%, rgba(15,23,44,0.7) 55%, rgba(10,16,32,0.92) 100%),
+      url('images/closing-illust-bg.jpg') center 18% / cover no-repeat,
+      var(--ink);
     color:var(--white);
     text-align:center;
   }
@@ -650,6 +666,9 @@
     .wrap{max-width:1100px;}
     .sticky-cta{max-width:1100px;}
     section{padding:100px 64px;}
+
+    .fv{min-height:820px;}
+    section.closing{min-height:640px;display:flex;flex-direction:column;justify-content:center;}
 
     /* 文章系は読みやすい幅に収めて中央寄せ */
     .fv-content{max-width:640px;margin:0 auto;}
@@ -731,10 +750,7 @@
 
   <!-- ① FV : character video -->
   <section class="fv">
-    <div class="fv-bg">
-      <svg class="fw-deco tl lg" viewBox="0 0 200 200" aria-hidden="true"><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"><line x1="100" y1="100" x2="100" y2="15"/><line x1="100" y1="100" x2="160" y2="40"/><line x1="100" y1="100" x2="185" y2="100"/><line x1="100" y1="100" x2="160" y2="160"/><line x1="100" y1="100" x2="100" y2="185"/><line x1="100" y1="100" x2="40" y2="160"/><line x1="100" y1="100" x2="15" y2="100"/><line x1="100" y1="100" x2="40" y2="40"/><circle cx="100" cy="100" r="7" fill="currentColor"/></g></svg>
-      <svg class="fw-deco br" viewBox="0 0 200 200" aria-hidden="true"><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"><line x1="100" y1="100" x2="100" y2="15"/><line x1="100" y1="100" x2="160" y2="40"/><line x1="100" y1="100" x2="185" y2="100"/><line x1="100" y1="100" x2="160" y2="160"/><line x1="100" y1="100" x2="100" y2="185"/><line x1="100" y1="100" x2="40" y2="160"/><line x1="100" y1="100" x2="15" y2="100"/><line x1="100" y1="100" x2="40" y2="40"/><circle cx="100" cy="100" r="7" fill="currentColor"/></g></svg>
-    </div>
+    <div class="fv-bg"></div>
     <div class="fv-content">
       <span class="eyebrow">Toomachi Summer Fireworks Night ／ とおまち夏花火ナイト</span>
       <h1><span>今年の夏、</span><span>まだ予定決まってない人へ。</span></h1>
@@ -774,6 +790,7 @@
     <span class="eyebrow reveal">SUMMER, FIREWORKS</span>
     <h2 class="section-title reveal">夏はやっぱり、<br>花火だよね。</h2>
     <div class="divider reveal"></div>
+    <div class="illust-card reveal"><img src="images/pain-illust.jpg" alt="屋台で林檎飴を頬張る灯真"></div>
     <ul class="arualru-list reveal">
       <li>今年こそ、浴衣を着て出かけたい</li>
       <li>混みすぎない場所で、ゆったり花火を見たい</li>
@@ -792,6 +809,7 @@
     <span class="eyebrow reveal">SOLUTION</span>
     <h2 class="section-title reveal">とおまちは、<br>ちょうどいい。</h2>
     <div class="divider reveal"></div>
+    <div class="illust-card reveal"><img src="images/solution-illust.jpg" alt="提灯の並ぶ道を曲がった瞬間の灯真"></div>
     <p class="lead reveal">駅から歩いてすぐ。川沿いに、ゆるく人が集まるくらいの賑わい。混みすぎないから、座って、話しながら、ゆったり花火が見られる。気合いを入れなくても、ふらっと行けるくらいが、ちょうどいい。</p>
     <ul class="point-list reveal">
       <li><span class="point-num">一</span>ちょうどいい規模感（約3,000発、川幅が近くて迫力あり）</li>
@@ -806,6 +824,7 @@
     <span class="eyebrow reveal">EVENT INFO</span>
     <h2 class="section-title reveal">とおまち夏花火ナイト</h2>
     <div class="divider reveal"></div>
+    <div class="illust-card reveal"><img src="images/eventinfo-illust.jpg" alt="有料観覧席でくつろぎながら花火を見る灯真"></div>
     <table class="info-table reveal">
       <tr><th>開催日</th><td>8月中旬の土曜（年1回開催）</td></tr>
       <tr><th>会場</th><td>とおまち川河川敷</td></tr>
@@ -1052,8 +1071,6 @@
 
   <!-- ⑩ Closing CTA -->
   <section class="closing" id="reserve">
-    <svg class="fw-deco tl" viewBox="0 0 200 200" aria-hidden="true"><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"><line x1="100" y1="100" x2="100" y2="15"/><line x1="100" y1="100" x2="160" y2="40"/><line x1="100" y1="100" x2="185" y2="100"/><line x1="100" y1="100" x2="160" y2="160"/><line x1="100" y1="100" x2="100" y2="185"/><line x1="100" y1="100" x2="40" y2="160"/><line x1="100" y1="100" x2="15" y2="100"/><line x1="100" y1="100" x2="40" y2="40"/><circle cx="100" cy="100" r="7" fill="currentColor"/></g></svg>
-    <svg class="fw-deco br" viewBox="0 0 200 200" aria-hidden="true"><g stroke="currentColor" stroke-width="4" stroke-linecap="round" fill="none"><line x1="100" y1="100" x2="100" y2="15"/><line x1="100" y1="100" x2="160" y2="40"/><line x1="100" y1="100" x2="185" y2="100"/><line x1="100" y1="100" x2="160" y2="160"/><line x1="100" y1="100" x2="100" y2="185"/><line x1="100" y1="100" x2="40" y2="160"/><line x1="100" y1="100" x2="15" y2="100"/><line x1="100" y1="100" x2="40" y2="40"/><circle cx="100" cy="100" r="7" fill="currentColor"/></g></svg>
     <span class="eyebrow reveal">SEE YOU THIS SUMMER</span>
     <h2 class="section-title reveal" style="color:#fff;">今年の夏は、とおまちで。</h2>
     <div class="divider reveal"></div>
