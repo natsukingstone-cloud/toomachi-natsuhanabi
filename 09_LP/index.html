@@ -132,6 +132,16 @@
   @media (min-width:900px){
     .illust-card{max-width:320px;}
   }
+  .avatar-note{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    margin-bottom:28px;
+  }
+  .avatar-note img{
+    width:56px;height:56px;border-radius:50%;object-fit:cover;
+    border:2px solid var(--gold);
+    flex-shrink:0;
+  }
+  .avatar-note p{font-size:0.78rem;color:var(--charcoal);opacity:0.85;text-align:left;}
 
   /* ---------- reveal-on-scroll ---------- */
   .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.22,.8,.32,1), transform 1s cubic-bezier(.22,.8,.32,1);}
@@ -782,6 +792,7 @@
       <div class="play-badge"><div class="circle"></div></div>
     </div>
     <p class="reel-caption reveal">Instagramで公開中のリールと同じ映像です。とおまちの一晩を、30数秒で。</p>
+    <div class="illust-card reveal" style="margin-top:26px;"><img src="images/reel-illust.jpg" alt="動画について話しかける灯真"></div>
   </section>
 
   <!-- ② 共感（楽しみのシンクロ） -->
@@ -842,6 +853,7 @@
     <span class="eyebrow reveal">A NIGHT IN TOOMACHI</span>
     <h2 class="section-title reveal">とおまちで過ごす、<br>ひと晩の流れ</h2>
     <div class="divider reveal"></div>
+    <div class="illust-card reveal"><img src="images/scenes-illust.jpg" alt="ひと晩の流れを案内する灯真"></div>
 
     <div class="scene-grid">
       <div class="scene-card reveal">
@@ -911,6 +923,7 @@
     <span class="eyebrow reveal">STAY &amp; EAT</span>
     <h2 class="section-title reveal">とおまちに泊まる、<br>とおまちで食べる</h2>
     <div class="divider reveal"></div>
+    <div class="illust-card reveal"><img src="images/stayeat-illust.jpg" alt="お辞儀する灯真"></div>
     <p class="lead-text reveal">町内の宿は数に限りがあります。気になる宿が見つかったら、LINEで気軽に空室を相談してみてください。</p>
 
     <div class="subsection-title reveal">宿泊施設</div>
@@ -1003,6 +1016,10 @@
     <span class="eyebrow reveal">VOICE</span>
     <h2 class="section-title reveal">来場者の声</h2>
     <div class="divider reveal"></div>
+    <div class="avatar-note reveal">
+      <img src="images/voices-avatar.jpg" alt="お辞儀する灯真のアイコン">
+      <p>実際に来てくれたみなさんの声を、集めてみたよ。</p>
+    </div>
 
     <div class="voice-grid">
       <div class="voice-card reveal">
@@ -1034,6 +1051,7 @@
     <span class="eyebrow reveal">FAQ</span>
     <h2 class="section-title reveal">よくある質問</h2>
     <div class="divider reveal"></div>
+    <div class="illust-card reveal"><img src="images/faq-illust.jpg" alt="嬉しそうな灯真"></div>
 
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>予約は必須ですか？</span><span class="chevron">＋</span></div>
