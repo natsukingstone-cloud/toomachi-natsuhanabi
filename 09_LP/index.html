@@ -126,7 +126,9 @@
     margin:0 auto 28px;
     border-radius:14px;
     overflow:hidden;
-    box-shadow:0 16px 40px rgba(27,42,74,0.25);
+    box-shadow:0 16px 40px rgba(27,42,74,0.18);
+    background:radial-gradient(ellipse at 50% 20%, #FBF3E3 0%, var(--paper-deep) 78%);
+    border:1px solid rgba(176,134,80,0.25);
   }
   .illust-card img{width:100%;display:block;}
   @media (min-width:900px){
@@ -166,8 +168,8 @@
   .fv-bg{
     position:absolute;inset:0;z-index:0;
     background:
-      linear-gradient(180deg, rgba(15,23,44,0.32) 0%, rgba(15,23,44,0.12) 30%, rgba(15,23,44,0.55) 78%, rgba(10,16,32,0.88) 100%),
-      url('images/fv-illust-bg.jpg') center 22% / cover no-repeat;
+      linear-gradient(180deg, rgba(10,16,32,0.5) 0%, rgba(15,23,44,0.22) 22%, rgba(15,23,44,0.4) 60%, rgba(10,16,32,0.85) 100%),
+      url('images/fv-illust-bg.jpg') center 42% / cover no-repeat;
     animation:kenburns 18s ease-in-out infinite alternate;
   }
   @keyframes kenburns{
@@ -175,6 +177,12 @@
     100%{transform:scale(1);}
   }
   .fv-content{position:relative;z-index:2;padding:70px 30px 90px;}
+  .fv-text-shadow{
+    text-shadow:
+      -1px -1px 0 rgba(0,0,0,0.5), 1px -1px 0 rgba(0,0,0,0.5),
+      -1px 1px 0 rgba(0,0,0,0.5), 1px 1px 0 rgba(0,0,0,0.5),
+      0 4px 16px rgba(0,0,0,0.55);
+  }
   .fv .eyebrow{
     color:#E9C9A0;
     opacity:0;
@@ -201,10 +209,19 @@
     font-size:0.86rem;
     font-weight:300;
     letter-spacing:0.06em;
-    margin-bottom:38px;
+    margin-bottom:22px;
     opacity:0;
     animation:fadeUp .9s ease forwards;
     animation-delay:1.05s;
+  }
+  .fv .fv-quote{
+    font-family:'Shippori Mincho',serif;
+    font-size:0.86rem;
+    color:#FFF6E5;
+    margin-bottom:34px;
+    opacity:0;
+    animation:fadeUp .9s ease forwards;
+    animation-delay:1.25s;
   }
   @keyframes fadeUp{
     from{opacity:0;transform:translateY(14px);}
@@ -762,15 +779,10 @@
   <section class="fv">
     <div class="fv-bg"></div>
     <div class="fv-content">
-      <span class="eyebrow">Toomachi Summer Fireworks Night ／ とおまち夏花火ナイト</span>
-      <h1><span>今年の夏、</span><span>まだ予定決まってない人へ。</span></h1>
-      <p class="sub">有名じゃなくていい。ちょっと懐かしい夏を、とおまちで。</p>
-      <div class="char-video fv-intro">
-        <video autoplay muted loop playsinline poster="images/reel-poster.jpg">
-          <source src="images/fv-hook.mp4" type="video/mp4">
-        </video>
-        <div class="telop">「今年の夏、ここに決めた。」</div>
-      </div>
+      <span class="eyebrow fv-text-shadow">Toomachi Summer Fireworks Night ／ とおまち夏花火ナイト</span>
+      <h1 class="fv-text-shadow"><span>今年の夏、</span><span>まだ予定決まってない人へ。</span></h1>
+      <p class="sub fv-text-shadow">有名じゃなくていい。ちょっと懐かしい夏を、とおまちで。</p>
+      <p class="fv-quote fv-text-shadow">「今年の夏、ここに決めた。」</p>
       <div class="cta-group">
         <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-primary">席を予約しておく</a>
         <a href="#contact" class="btn btn-outline">LINEで宿を相談する</a>
@@ -792,7 +804,7 @@
       <div class="play-badge"><div class="circle"></div></div>
     </div>
     <p class="reel-caption reveal">Instagramで公開中のリールと同じ映像です。とおまちの一晩を、30数秒で。</p>
-    <div class="illust-card reveal" style="margin-top:26px;"><img src="images/reel-illust.jpg" alt="動画について話しかける灯真"></div>
+    <div class="illust-card reveal" style="margin-top:26px;"><img src="images/reel-illust.png" alt="動画について話しかける灯真"></div>
   </section>
 
   <!-- ② 共感（楽しみのシンクロ） -->
@@ -853,7 +865,7 @@
     <span class="eyebrow reveal">A NIGHT IN TOOMACHI</span>
     <h2 class="section-title reveal">とおまちで過ごす、<br>ひと晩の流れ</h2>
     <div class="divider reveal"></div>
-    <div class="illust-card reveal"><img src="images/scenes-illust.jpg" alt="ひと晩の流れを案内する灯真"></div>
+    <div class="illust-card reveal"><img src="images/scenes-illust.png" alt="ひと晩の流れを案内する灯真"></div>
 
     <div class="scene-grid">
       <div class="scene-card reveal">
@@ -923,7 +935,7 @@
     <span class="eyebrow reveal">STAY &amp; EAT</span>
     <h2 class="section-title reveal">とおまちに泊まる、<br>とおまちで食べる</h2>
     <div class="divider reveal"></div>
-    <div class="illust-card reveal"><img src="images/stayeat-illust.jpg" alt="お辞儀する灯真"></div>
+    <div class="illust-card reveal"><img src="images/stayeat-illust.png" alt="お辞儀する灯真"></div>
     <p class="lead-text reveal">町内の宿は数に限りがあります。気になる宿が見つかったら、LINEで気軽に空室を相談してみてください。</p>
 
     <div class="subsection-title reveal">宿泊施設</div>
@@ -1017,7 +1029,7 @@
     <h2 class="section-title reveal">来場者の声</h2>
     <div class="divider reveal"></div>
     <div class="avatar-note reveal">
-      <img src="images/voices-avatar.jpg" alt="お辞儀する灯真のアイコン">
+      <img src="images/voices-avatar.png" alt="お辞儀する灯真のアイコン">
       <p>実際に来てくれたみなさんの声を、集めてみたよ。</p>
     </div>
 
@@ -1051,7 +1063,7 @@
     <span class="eyebrow reveal">FAQ</span>
     <h2 class="section-title reveal">よくある質問</h2>
     <div class="divider reveal"></div>
-    <div class="illust-card reveal"><img src="images/faq-illust.jpg" alt="嬉しそうな灯真"></div>
+    <div class="illust-card reveal"><img src="images/faq-illust.png" alt="嬉しそうな灯真"></div>
 
     <div class="faq-item reveal">
       <div class="faq-q" onclick="toggleFaq(this)"><span><span class="q-mark">Q</span>予約は必須ですか？</span><span class="chevron">＋</span></div>
