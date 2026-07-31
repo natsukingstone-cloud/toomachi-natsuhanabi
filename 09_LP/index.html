@@ -23,7 +23,7 @@
     --charcoal:#2C2A26;
     --white:#ffffff;
   }
-  *{box-sizing:border-box;margin:0;padding:0;}
+  *{box-sizing:border-box;margin:0;padding:0;cursor:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMCIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMwIDMwIj48ZyBzdHJva2UtbGluZWNhcD0icm91bmQiPjxsaW5lIHgxPSIxNSIgeTE9IjE1IiB4Mj0iMTUiIHkyPSI0IiBzdHJva2U9IiNGRjlFQjUiIHN0cm9rZS13aWR0aD0iMi40Ii8+PGxpbmUgeDE9IjE1IiB5MT0iMTUiIHgyPSIyNCIgeTI9IjciIHN0cm9rZT0iIzZFQzZDNiIgc3Ryb2tlLXdpZHRoPSIyLjQiLz48bGluZSB4MT0iMTUiIHkxPSIxNSIgeDI9IjI3IiB5Mj0iMTUiIHN0cm9rZT0iI0ZGRDg3MyIgc3Ryb2tlLXdpZHRoPSIyLjQiLz48bGluZSB4MT0iMTUiIHkxPSIxNSIgeDI9IjI0IiB5Mj0iMjMiIHN0cm9rZT0iIzZFQzZDNiIgc3Ryb2tlLXdpZHRoPSIyLjQiLz48bGluZSB4MT0iMTUiIHkxPSIxNSIgeDI9IjE1IiB5Mj0iMjYiIHN0cm9rZT0iI0ZGOUVCNSIgc3Ryb2tlLXdpZHRoPSIyLjQiLz48bGluZSB4MT0iMTUiIHkxPSIxNSIgeDI9IjYiIHkyPSIyMyIgc3Ryb2tlPSIjRkZEODczIiBzdHJva2Utd2lkdGg9IjIuNCIvPjxsaW5lIHgxPSIxNSIgeTE9IjE1IiB4Mj0iMyIgeTI9IjE1IiBzdHJva2U9IiM2RUM2QzYiIHN0cm9rZS13aWR0aD0iMi40Ii8+PGxpbmUgeDE9IjE1IiB5MT0iMTUiIHgyPSI2IiB5Mj0iNyIgc3Ryb2tlPSIjRkY5RUI1IiBzdHJva2Utd2lkdGg9IjIuNCIvPjwvZz48Y2lyY2xlIGN4PSIxNSIgY3k9IjE1IiByPSIzIiBmaWxsPSIjRkZGM0Q2IiBzdHJva2U9IiNCMDg2NTAiIHN0cm9rZS13aWR0aD0iMC42Ii8+PC9zdmc+") 15 15, auto;}
   html{scroll-behavior:smooth;}
   body{
     font-family:'Noto Sans JP',sans-serif;
@@ -799,6 +799,33 @@
     .foot-note{max-width:640px;margin:0 auto 26px;}
     .operator-info{max-width:640px;margin-left:auto;margin-right:auto;}
   }
+
+  /* ---------- CTAクリック時の打ち上げ花火演出 ---------- */
+  .fw-rocket{
+    position:fixed;
+    width:4px;height:4px;
+    border-radius:50%;
+    background:#FFD873;
+    box-shadow:0 0 10px 3px rgba(255,216,115,0.85);
+    pointer-events:none;
+    z-index:9999;
+  }
+  @keyframes fwRise{
+    from{transform:translateY(0);opacity:1;}
+    to{opacity:1;}
+  }
+  .fw-particle{
+    position:fixed;
+    width:7px;height:7px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:9999;
+    animation:fwPop .9s ease-out forwards;
+  }
+  @keyframes fwPop{
+    0%{transform:translate(0,0) scale(1);opacity:1;}
+    100%{transform:translate(var(--dx),var(--dy)) scale(0.3);opacity:0;}
+  }
 </style>
 </head>
 <body>
@@ -838,7 +865,6 @@
       </video>
       <div class="play-badge"><div class="circle"></div></div>
     </div>
-    <p class="reel-caption reveal">Instagramで公開中のリールと同じ映像です。とおまちの一晩を、30数秒で。</p>
     <div class="illust-card reveal" style="margin-top:26px;"><img src="images/reel-illust.png" alt="動画について話しかける灯真"></div>
     <p class="illust-caption reveal">まずはこの動画で、雰囲気だけでも見てみて。</p>
   </section>
@@ -1238,6 +1264,49 @@ function playReel(){
   vid.muted = false;
   vid.play();
 }
+
+// CTAクリック時の打ち上げ花火演出
+function launchFirework(x, y){
+  var startY = window.innerHeight + 10;
+  var rocket = document.createElement('div');
+  rocket.className = 'fw-rocket';
+  rocket.style.left = (x - 2) + 'px';
+  rocket.style.top = startY + 'px';
+  rocket.style.transition = 'top .42s cubic-bezier(.2,.7,.3,1), opacity .1s';
+  document.body.appendChild(rocket);
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      rocket.style.top = y + 'px';
+    });
+  });
+
+  setTimeout(function(){
+    rocket.remove();
+    var colors = ['#FF9EB5', '#6EC6C6', '#FFD873', '#E8633C', '#FFF3D6'];
+    var count = 18;
+    for(var i = 0; i < count; i++){
+      var p = document.createElement('div');
+      p.className = 'fw-particle';
+      var angle = (Math.PI * 2 * i) / count + Math.random() * 0.25;
+      var dist = 36 + Math.random() * 54;
+      var dx = Math.cos(angle) * dist;
+      var dy = Math.sin(angle) * dist;
+      p.style.left = (x - 3) + 'px';
+      p.style.top = (y - 3) + 'px';
+      p.style.background = colors[i % colors.length];
+      p.style.setProperty('--dx', dx.toFixed(1) + 'px');
+      p.style.setProperty('--dy', dy.toFixed(1) + 'px');
+      document.body.appendChild(p);
+      (function(el){ setTimeout(function(){ el.remove(); }, 950); })(p);
+    }
+  }, 430);
+}
+
+document.querySelectorAll('.btn-primary, .btn-line').forEach(function(btn){
+  btn.addEventListener('click', function(e){
+    launchFirework(e.clientX, e.clientY);
+  });
+});
 
 // scroll reveal
 var observer = new IntersectionObserver(function(entries){
