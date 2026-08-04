@@ -198,14 +198,17 @@
   }
   .fv-bg{
     position:absolute;inset:0;z-index:0;
-    background:
-      linear-gradient(180deg, rgba(10,16,32,0.5) 0%, rgba(15,23,44,0.22) 22%, rgba(15,23,44,0.4) 60%, rgba(10,16,32,0.85) 100%),
-      url('images/fv-illust-bg.jpg') center 42% / cover no-repeat;
-    animation:kenburns 18s ease-in-out infinite alternate;
+    overflow:hidden;
   }
-  @keyframes kenburns{
-    0%{transform:scale(1.04);}
-    100%{transform:scale(1);}
+  .fv-bg::after{
+    content:'';
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg, rgba(10,16,32,0.5) 0%, rgba(15,23,44,0.22) 22%, rgba(15,23,44,0.4) 60%, rgba(10,16,32,0.85) 100%);
+  }
+  .fv-bg video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;object-position:center 42%;
   }
   .fv-content{position:relative;z-index:2;padding:70px 30px 90px;}
   .fv-text-shadow{
@@ -358,6 +361,33 @@
     color:var(--ink);
     border:1px solid var(--ink);
   }
+  /* ---------- 予約フォーム（自作HTML→fetch()でGASへPOST） ---------- */
+  .reserve-form{
+    max-width:340px;margin:0 auto;text-align:left;
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:10px;
+    padding:24px 20px 22px;
+  }
+  .reserve-form .form-row{margin-bottom:14px;}
+  .reserve-form label{display:block;font-size:0.72rem;color:#E9C9A0;margin-bottom:6px;letter-spacing:0.05em;}
+  .reserve-form label .req{color:var(--accent);font-size:0.62rem;margin-left:6px;font-weight:700;}
+  .reserve-form input,
+  .reserve-form select,
+  .reserve-form textarea{
+    width:100%;
+    background:rgba(255,255,255,0.94);
+    border:none;border-radius:4px;
+    padding:11px 12px;
+    font-family:inherit;font-size:0.85rem;color:var(--charcoal);
+    -webkit-appearance:none;appearance:none;
+  }
+  .reserve-form textarea{resize:vertical;}
+  .reserve-form .form-note{font-size:0.66rem;color:rgba(255,255,255,0.55);margin:2px 0 16px;line-height:1.6;}
+  .reserve-form .btn{width:100%;min-width:0;border:none;cursor:pointer;font-family:inherit;}
+  .reserve-form .btn:disabled{opacity:0.6;}
+  .reserve-msg{margin-top:12px;text-align:center;font-size:0.78rem;color:#E9C9A0;line-height:1.6;min-height:1px;}
+  .reserve-msg.error{color:#FF9EB5;}
 
   /* ---------- Reel showcase ---------- */
   section.reel-showcase{background:var(--ink);text-align:center;color:#F3ECDD;}
@@ -721,7 +751,7 @@
   #reserve{scroll-margin-top:70px;}
 
   @media (min-width:561px){
-    .wrap{margin:24px auto;}
+    .wrap{margin:0 auto;}
   }
 
   /* ==================================================================
@@ -842,7 +872,11 @@
 
   <!-- ① FV : character video -->
   <section class="fv">
-    <div class="fv-bg"></div>
+    <div class="fv-bg">
+      <video autoplay muted loop playsinline poster="images/fv-illust-bg.jpg">
+        <source src="images/fv-hook.mp4" type="video/mp4">
+      </video>
+    </div>
     <svg class="fw-deco p1 xs c-accent" viewBox="0 0 200 200" aria-hidden="true"><g stroke-linecap="round"><line x1="100" y1="100" x2="100" y2="15" stroke="#FF9EB5" stroke-width="4"/><line x1="100" y1="100" x2="160" y2="40" stroke="#6EC6C6" stroke-width="4"/><line x1="100" y1="100" x2="185" y2="100" stroke="#FFD873" stroke-width="4"/><line x1="100" y1="100" x2="160" y2="160" stroke="#6EC6C6" stroke-width="4"/><line x1="100" y1="100" x2="100" y2="185" stroke="#FF9EB5" stroke-width="4"/><line x1="100" y1="100" x2="40" y2="160" stroke="#FFD873" stroke-width="4"/><line x1="100" y1="100" x2="15" y2="100" stroke="#6EC6C6" stroke-width="4"/><line x1="100" y1="100" x2="40" y2="40" stroke="#FF9EB5" stroke-width="4"/><circle cx="100" cy="10" r="4" fill="#FF9EB5"/><circle cx="166" cy="34" r="3.5" fill="#6EC6C6"/><circle cx="192" cy="100" r="4" fill="#FFD873"/><circle cx="166" cy="166" r="3.5" fill="#6EC6C6"/><circle cx="100" cy="192" r="4" fill="#FF9EB5"/><circle cx="34" cy="166" r="3.5" fill="#FFD873"/><circle cx="8" cy="100" r="4" fill="#6EC6C6"/><circle cx="34" cy="34" r="3.5" fill="#FF9EB5"/><circle cx="100" cy="100" r="6" fill="#FFF3D6"/></g></svg>
     <svg class="fw-deco p4 sm c-blue" viewBox="0 0 200 200" aria-hidden="true"><g stroke-linecap="round"><line x1="100" y1="100" x2="100" y2="15" stroke="#FF9EB5" stroke-width="4"/><line x1="100" y1="100" x2="160" y2="40" stroke="#6EC6C6" stroke-width="4"/><line x1="100" y1="100" x2="185" y2="100" stroke="#FFD873" stroke-width="4"/><line x1="100" y1="100" x2="160" y2="160" stroke="#6EC6C6" stroke-width="4"/><line x1="100" y1="100" x2="100" y2="185" stroke="#FF9EB5" stroke-width="4"/><line x1="100" y1="100" x2="40" y2="160" stroke="#FFD873" stroke-width="4"/><line x1="100" y1="100" x2="15" y2="100" stroke="#6EC6C6" stroke-width="4"/><line x1="100" y1="100" x2="40" y2="40" stroke="#FF9EB5" stroke-width="4"/><circle cx="100" cy="10" r="4" fill="#FF9EB5"/><circle cx="166" cy="34" r="3.5" fill="#6EC6C6"/><circle cx="192" cy="100" r="4" fill="#FFD873"/><circle cx="166" cy="166" r="3.5" fill="#6EC6C6"/><circle cx="100" cy="192" r="4" fill="#FF9EB5"/><circle cx="34" cy="166" r="3.5" fill="#FFD873"/><circle cx="8" cy="100" r="4" fill="#6EC6C6"/><circle cx="34" cy="34" r="3.5" fill="#FF9EB5"/><circle cx="100" cy="100" r="6" fill="#FFF3D6"/></g></svg>
     <div class="fv-content">
@@ -851,7 +885,7 @@
       <p class="sub fv-text-shadow">有名じゃなくていい。ちょっと懐かしい夏を、とおまちで。</p>
       <p class="fv-quote fv-text-shadow">「今年の夏、ここに決めた。」</p>
       <div class="cta-group">
-        <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-primary">席を予約しておく</a>
+        <a href="#reserve" class="btn btn-primary">席を予約しておく</a>
         <a href="#contact" class="btn btn-outline">LINEで宿を相談する</a>
       </div>
     </div>
@@ -933,7 +967,7 @@
       <tr><th>有料観覧席</th><td>¥1,500（税込）／1名（事前予約制・先着）</td></tr>
     </table>
     <div class="note-box reveal">ゆったり座って見たいなら、観覧席の予約がおすすめ。予約なしでも、ちゃんと楽しめます。</div>
-    <div style="text-align:center;" class="reveal"><a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-ink-outline">席を予約しておく</a></div>
+    <div style="text-align:center;" class="reveal"><a href="#reserve" class="btn btn-ink-outline">席を予約しておく</a></div>
   </section>
 
   <!-- ⑤ 来場シーン -->
@@ -1209,8 +1243,44 @@
       </video>
       <div class="telop">「予約なしでも楽しめるけど、<br>ゆったり見るなら予約席がおすすめだよ。会いに来てね。」</div>
     </div>
-    <div class="cta-group reveal" style="margin-top:20px;">
-      <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-primary">席を予約しておく</a>
+    <form id="reserveForm" class="reserve-form reveal" style="margin-top:20px;">
+      <div class="form-row">
+        <label>お名前<span class="req">必須</span></label>
+        <input type="text" name="name" autocomplete="name" required>
+      </div>
+      <div class="form-row">
+        <label>人数<span class="req">必須</span></label>
+        <select name="count" required>
+          <option value="">選択してください</option>
+          <option value="1">1名</option>
+          <option value="2">2名</option>
+          <option value="3">3名</option>
+          <option value="4">4名</option>
+          <option value="5">5名</option>
+          <option value="6">6名</option>
+          <option value="7">7名</option>
+          <option value="8">8名</option>
+          <option value="9">9名</option>
+          <option value="10">10名</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label>メールアドレス</label>
+        <input type="email" name="email" autocomplete="email" placeholder="確認メールをお送りします">
+      </div>
+      <div class="form-row">
+        <label>電話番号</label>
+        <input type="tel" name="tel" autocomplete="tel" placeholder="任意">
+      </div>
+      <div class="form-row">
+        <label>備考</label>
+        <textarea name="note" rows="2" placeholder="任意"></textarea>
+      </div>
+      <p class="form-note">※メールアドレス・電話番号のいずれかをご入力ください。</p>
+      <button type="submit" class="btn btn-primary">席を予約する</button>
+      <p id="reserveMsg" class="reserve-msg"></p>
+    </form>
+    <div class="cta-group reveal" style="margin-top:16px;">
       <a href="#contact" class="btn btn-line">LINEで宿を相談する</a>
     </div>
   </section>
@@ -1226,7 +1296,7 @@
     </div>
     <div class="cta-group" style="margin-bottom:26px;">
       <a href="#" class="btn btn-line">公式LINEを友だち追加する</a>
-      <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:var(--gold);">観覧席予約フォームへ</a>
+      <a href="#reserve" class="btn btn-outline" style="border-color:var(--gold);">観覧席予約フォームへ</a>
     </div>
     <div class="foot-links">
       <a href="#event-info">開催概要</a>
@@ -1249,7 +1319,7 @@
 </div><!-- /.wrap -->
 
 <div class="sticky-cta">
-  <a href="https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec" target="_blank" rel="noopener" class="btn btn-primary">席を予約する</a>
+  <a href="#reserve" class="btn btn-primary">席を予約する</a>
   <a href="#contact" class="btn btn-line">LINEで相談</a>
 </div>
 
@@ -1329,6 +1399,52 @@ document.querySelectorAll('.btn-primary, .btn-line').forEach(function(btn){
     }, 550);
   });
 });
+
+// 予約フォーム：自作HTMLフォーム → fetch()でGASのURLへPOST（no-cors）
+var GAS_RESERVE_URL = 'https://script.google.com/macros/s/AKfycbyFky1CL2Kee30CiwwEIbk6vwAQnTGz4T6nRjfNAHXWC1pnmiVmitBrXSU3Xy76Ghr7/exec';
+var reserveForm = document.getElementById('reserveForm');
+if(reserveForm){
+  reserveForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var msg = document.getElementById('reserveMsg');
+    var btn = reserveForm.querySelector('button[type="submit"]');
+    var email = reserveForm.email.value.trim();
+    var tel = reserveForm.tel.value.trim();
+    msg.classList.remove('error');
+
+    if(!email && !tel){
+      msg.textContent = 'メールアドレスまたは電話番号のいずれかを入力してください。';
+      msg.classList.add('error');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = '送信中…';
+
+    var params = new URLSearchParams({
+      name: reserveForm.name.value.trim(),
+      count: reserveForm.count.value,
+      email: email,
+      tel: tel,
+      note: reserveForm.note.value.trim()
+    });
+
+    fetch(GAS_RESERVE_URL, { method: 'POST', mode: 'no-cors', body: params })
+      .then(function(){
+        btn.textContent = 'ご予約ありがとうございます';
+        msg.textContent = 'ご予約を受け付けました。ご入力いただいたメール宛に確認メールをお送りします（届かない場合は迷惑メールフォルダもご確認ください）。';
+        var rect = btn.getBoundingClientRect();
+        launchFirework(rect.left + rect.width / 2, rect.top);
+        reserveForm.reset();
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = '席を予約する';
+        msg.textContent = '送信に失敗しました。お手数ですが時間をおいて再度お試しください。';
+        msg.classList.add('error');
+      });
+  });
+}
 
 // 画面に常時ふわっと打ち上がるアンビエント花火
 function ambientFireworksLoop(){
